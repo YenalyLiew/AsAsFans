@@ -1,0 +1,4 @@
+
+rootProject.name = "AsAsFans"
+include ':app'
+include ':module-support'

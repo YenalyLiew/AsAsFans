@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ResourceName">
+
+    <declare-styleable name="ImageTextView">
+        <attr name="it_orientation" format="integer">
+            <flag name="horizontal" value="0" />
+            <flag name="vertical" value="1" />
+        </attr>
+        <attr name="it_text" format="string|reference" />
+        <attr name="it_icon" format="reference" />
+        <attr name="it_textIconMargin" format="reference|dimension" />
+        <attr name="it_txtColor" format="color|reference" />
+        <attr name="it_txtSize" format="dimension|reference" />
+        <attr name="it_iconSize" format="dimension|reference" />
+        <attr name="it_padding" format="dimension|reference" />
+    </declare-styleable>
+
+</resources>

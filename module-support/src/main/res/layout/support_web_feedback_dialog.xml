@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/support_shape_bg_top_radius_10dp">
+
+    <TextView
+        android:id="@+id/tv_close"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/dp_15"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="@dimen/dp_22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="关闭"
+        android:textColor="#0F1826"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/tv_thanks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/dp_11"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="感谢您的反馈!"
+        android:textColor="#353535"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/tv_commit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/dp_15"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="@dimen/dp_22"
+        android:text="提交"
+        android:textSize="@dimen/sp_14"
+        android:textColor="#0089CD"/>
+
+    <TextView
+        android:id="@+id/tv_cause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/dp_63"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:text="请选择您觉得未解决的原因："
+        android:textSize="12sp"
+        android:textColor="#6E7580"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cause"
+        android:layout_marginTop="@dimen/dp_15"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="@dimen/dp_30"/>
+
+    <TextView
+        android:id="@+id/tv_shuru"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="@+id/et_shuru"
+        android:layout_marginRight="@dimen/dp_12"
+        app:layout_constraintBottom_toBottomOf="@+id/et_shuru"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:text="/100"
+        android:textColor="#9B9B9B"
+        android:textSize="11sp"/>
+
+        <EditText
+            android:id="@+id/et_shuru"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_96"
+            app:layout_constraintTop_toBottomOf="@+id/rv_checkbox"
+            android:layout_marginTop="@dimen/dp_19"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/dp_22"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="@dimen/dp_16"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="@dimen/dp_16"
+            android:background="@null"
+            android:gravity="top"
+            android:hint="请简单描述原因，更利于内容优化"
+            android:textSize="12sp"
+            android:maxLength="100"
+            android:textColor="#353535"/>
+
+
+    <TextView
+        android:id="@+id/tv_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toLeftOf="@+id/tv_shuru"
+        app:layout_constraintTop_toTopOf="@+id/tv_shuru"
+        android:text="0"
+        android:textColor="#9B9B9B"
+        android:textSize="11sp"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

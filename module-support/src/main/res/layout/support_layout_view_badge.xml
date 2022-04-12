@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="@dimen/dp_44"
+        android:layout_height="@dimen/dp_44"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_12"
+        android:src="@mipmap/support_icon" />
+
+    <TextView
+        android:id="@+id/tv_badge_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_icon"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/font_strong"
+        android:layout_marginTop="@dimen/dp_9"
+        android:textSize="@dimen/dp_12"
+        android:text="测试"/>
+
+
+    <TextView
+        android:id="@+id/tv_badge_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/support_shape_corner_7"
+        android:text="88"
+        android:textSize="@dimen/dp_10"
+        android:paddingLeft="@dimen/dp_3"
+        android:paddingRight="@dimen/dp_3"
+        android:textColor="@color/white"
+        android:layout_marginStart="-10dp"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_toRightOf="@+id/iv_icon"/>
+
+
+</RelativeLayout>

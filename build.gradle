@@ -1,0 +1,38 @@
+buildscript {
+    apply from: "dependencies.gradle"
+
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url 'https://jitpack.io'}
+
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$gradleVersion"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
+        classpath "com.alibaba:arouter-register:$arouterRegisterVersion"
+        classpath "com.tencent.bugly:symtabfileuploader:$buglyFileUploadVersion"
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

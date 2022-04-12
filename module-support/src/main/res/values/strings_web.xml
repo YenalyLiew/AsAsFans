@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ResourceName">
+    <item name="web_parent_layout_id" type="id" />
+    <item name="agentweb_webview_id" type="id" />
+    <item name="mainframe_error_viewsub_id" type="id" />
+    <item name="mainframe_error_container_id" type="id" />
+
+    <string name="agentweb_dialog_tip">提示</string>
+    <string name="agentweb_camera">相机</string>
+    <string name="agentweb_file_chooser">文件</string>
+    <string name="agentweb_max_file_length_limit">选择的文件不能大于%sMB</string>
+    <string name="agentweb_loading">加载中，请稍候...</string>
+    <string name="agentweb_select_title">请选择</string>
+    <string name="agentweb_tip_download">确定打开浏览器下载？</string>
+</resources>

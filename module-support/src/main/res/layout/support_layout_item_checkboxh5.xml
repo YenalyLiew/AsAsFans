@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <CheckBox
+        android:id="@+id/ck_cause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:theme="@style/commit_checkbox" />
+
+    <TextView
+        android:id="@+id/tv_ck_cause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/ck_cause"
+        android:layout_marginLeft="@dimen/dp_11"
+        app:layout_constraintTop_toTopOf="@+id/ck_cause"
+        app:layout_constraintBottom_toBottomOf="@+id/ck_cause"
+        android:text="内容表达不清楚"
+        android:textSize="14sp"
+        android:textColor="#0F1826"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

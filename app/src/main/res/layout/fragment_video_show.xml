@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="VideoShowDataBinding">
+
+    </data>
+
+
+    <LinearLayout
+        android:id="@+id/ll_video"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <com.fairhr.module_support.widget.refresh.SmartRefreshLayout
+            android:id="@+id/sl_video"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_video"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:padding="8dp" />
+        </com.fairhr.module_support.widget.refresh.SmartRefreshLayout>
+
+
+    </LinearLayout>
+
+
+</layout>

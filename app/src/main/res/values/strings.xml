@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">AsAsFans</string>
+    <string name="a_soul">A-SOUL</string>
+    <string name="video">视频</string>
+    <string name="fan_art_pic">二创图片</string>
+    <string name="record_studio">录音棚</string>
+    <string name="tools">工具</string>
+    <string name="fan_video">热门二创</string>
+    <string name="hot_cut_video">热门切片</string>
+    <string name="new_release_video">最新发布</string>
+    <string name="history_recommend_video">历史推荐</string>
+    <string name="video_cover">视频封面</string>
+    <string name="settings">设置</string>
+    <string name="toolbox">工具箱</string>
+    <string name="zhi_net_check_duplicate">枝网查重</string>
+    <string name="dialect_dict">方言词典</string>
+    <string name="little_composition">小作文</string>
+    <string name="group_chat_history_public">论坛管理群聊天记录公示</string>
+    <string name="asoul_wiki">一个魂维基百科 A-SOUL WIKI</string>
+    <string name="composition_generator">小作文生成器</string>
+    <string name="art_and_record_site">A-SOUL原画录播站</string>
+    <string name="status_search">成分姬</string>
+    <string name="QA_search">QA查询（羊驼打过的太极）</string>
+    <string name="loading">正在加载中</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="refresh">刷新</string>
+    <string name="open_in_browser">在浏览器中打开</string>
+    <string name="asasfans_slogan">独属于一个魂的聚合平台</string>
+
+    <string name="ava">向晚</string>
+    <string name="bella">贝拉</string>
+    <string name="carol">珈乐</string>
+    <string name="diana">嘉然</string>
+    <string name="eileen">乃琳</string>
+    <string name="bella_carol">贝贝珈</string>
+    <string name="eileen_bella">乃贝</string>
+    <string name="diana_ava">嘉晚饭</string>
+    <string name="eileen_carol">琳狼</string>
+    <string name="carol_eileen">珈特琳</string>
+    <string name="eileen_ava">果丹皮</string>
+    <string name="eileen_diana">琳嘉女孩</string>
+    <string name="up">up主</string>
+    <string name="more">更多</string>
+    <string name="search">搜索</string>
+</resources>

@@ -1,0 +1,39 @@
+<resources>
+
+    <string name="support_file_provider_authorities">com.fairhr.support.fileProvider</string>
+
+    <string name="support_copy_success_tips">已复制至粘贴板</string>
+
+    <!--  web -->
+    <string name="web_default_page_error">加载失败，请点击重试...</string>
+    <string name="support_url_error">无效的链接</string>
+    <string name="support_no_more_data">暂无数据</string>
+    <string name="support_network_error_please_check">内容加载失败，请检查当前网络</string>
+
+    <string name="support_web_error_tips">数据加载失败</string>
+    <string name="support_web_error_reload">重新加载</string>
+    <string name="support_web_error_back">返回上一层</string>
+
+    <string name="support_sure">确定</string>
+    <string name="support_cancel">取消</string>
+
+    <string name="srl_header_pulling">下拉开始刷新</string>
+    <string name="srl_header_refreshing">正在刷新…</string>
+    <string name="srl_header_loading">正在加载…</string>
+    <string name="srl_header_release">释放即将刷新</string>
+    <string name="srl_header_finish">刷新完成</string>
+    <string name="srl_header_failed">刷新失败</string>
+    <string name="srl_header_update">上次更新 M-d HH:mm</string>
+    <string name="srl_header_secondary">进入二楼</string>
+
+    <string name="srl_footer_pulling">上拉开始加载</string>
+    <string name="srl_footer_release">释放即将加载</string>
+    <string name="srl_footer_loading">正在加载…</string>
+    <string name="srl_footer_refreshing">正在刷新…</string>
+    <string name="srl_footer_finish">加载完成</string>
+    <string name="srl_footer_failed">加载失败</string>
+    <string name="srl_footer_nothing">没有更多数据了</string>
+
+    <string name="srl_content_empty">SmartRefreshLayout中没有找到内容视图。您是否忘记在xml布局文件中添加？</string>
+    <string name="srl_component_falsify" formatted="false">%s 虚假区域\n代表运行时拖动的高度【%.1fdp】 \n而不会显示任何东西</string>
+</resources>

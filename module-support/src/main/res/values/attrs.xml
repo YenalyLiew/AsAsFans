@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="support_badge">
+        <attr name="support_content_text" format="string|reference" />
+        <attr name="support_img_src" format="reference" />
+        <attr name="support_show_badge" format="boolean" />
+    </declare-styleable>
+
+    <!--圆形头像-->
+    <declare-styleable name="RoundedImageView">
+        <attr name="cornerRadius" format="dimension" />
+        <attr name="reverseMask" format="boolean" />
+        <attr name="roundedCorners">
+            <flag name="topLeft" value="8" />
+            <flag name="topRight" value="4" />
+            <flag name="bottomLeft" value="2" />
+            <flag name="bottomRight" value="1" />
+            <flag name="top" value="12" />
+            <flag name="bottom" value="3" />
+            <flag name="all" value="15" />
+        </attr>
+    </declare-styleable>
+    <!--下拉刷新相关-->
+    <attr name="srlDrawableSize" format="dimension" /><!--图片尺寸-->
+    <attr name="srlDrawableArrowSize" format="dimension" /><!--箭头图片尺寸-->
+    <attr name="srlDrawableProgressSize" format="dimension" /><!--箭头图片尺寸-->
+    <attr name="srlDrawableMarginRight" format="dimension" /><!--图片和文字的间距-->
+    <attr name="srlTextSizeTitle" format="dimension" /><!--标题字体-->
+    <attr name="srlTextSizeTime" format="dimension" /><!--时间字体-->
+    <attr name="srlFinishDuration" format="integer" /><!--完成时停留时间-->
+    <attr name="srlPrimaryColor" format="color" /><!--主要颜色-->
+    <attr name="srlAccentColor" format="color" /><!--强调颜色-->
+    <attr name="srlDrawableArrow" format="reference" /><!--箭头图片-->
+    <attr name="srlDrawableProgress" format="reference" /><!--转动图片-->
+    <attr name="srlEnableHorizontalDrag" format="boolean" /><!--支持水平拖动-->
+
+    <attr name="srlTextPulling" format="string" />
+    <attr name="srlTextLoading" format="string" />
+    <attr name="srlTextRelease" format="string" />
+    <attr name="srlTextFinish" format="string" />
+    <attr name="srlTextFailed" format="string" />
+    <attr name="srlTextUpdate" format="string" />
+    <attr name="srlTextSecondary" format="string" />
+    <attr name="srlTextRefreshing" format="string" />
+    <attr name="srlTextNothing" format="string" />
+
+    <attr name="srlClassicsSpinnerStyle" format="enum">
+        <enum name="Translate" value="0" /><!--平行移动-->
+        <enum name="Scale" value="1" /><!--拉伸形变-->
+        <enum name="FixedBehind" value="2" /><!--固定在背后-->
+    </attr>
+
+    <attr name="layout_srlSpinnerStyle" format="enum">
+        <enum name="Translate" value="0" /><!--平行移动-->
+        <enum name="Scale" value="1" /><!--拉伸形变-->
+        <enum name="FixedBehind" value="2" /><!--固定在背后-->
+        <enum name="FixedFront" value="3" /><!--固定在前面-->
+        <enum name="MatchLayout" value="4" /><!--填满布局-->
+    </attr>
+
+    <declare-styleable name="SmartRefreshLayout">
+        <attr name="android:clipChildren" />
+        <attr name="android:clipToPadding" />
+        <attr name="srlPrimaryColor" />
+        <attr name="srlAccentColor" />
+        <attr name="srlReboundDuration" format="integer" />
+        <attr name="srlHeaderHeight" format="dimension" />
+        <attr name="srlFooterHeight" format="dimension" />
+        <attr name="srlHeaderInsetStart" format="dimension" />
+        <attr name="srlFooterInsetStart" format="dimension" />
+        <attr name="srlDragRate" format="float" />
+        <attr name="srlHeaderMaxDragRate" format="float" />
+        <attr name="srlFooterMaxDragRate" format="float" />
+        <attr name="srlHeaderTriggerRate" format="float" />
+        <attr name="srlFooterTriggerRate" format="float" />
+        <attr name="srlEnableRefresh" format="boolean" />
+        <attr name="srlEnableLoadMore" format="boolean" />
+        <attr name="srlEnableHeaderTranslationContent" format="boolean" />
+        <attr name="srlEnableFooterTranslationContent" format="boolean" />
+        <attr name="srlHeaderTranslationViewId" format="reference" />
+        <attr name="srlFooterTranslationViewId" format="reference" />
+        <attr name="srlEnablePreviewInEditMode" format="boolean" />
+        <attr name="srlEnableAutoLoadMore" format="boolean" />
+        <attr name="srlEnableOverScrollBounce" format="boolean" />
+        <attr name="srlEnablePureScrollMode" format="boolean" />
+        <attr name="srlEnableNestedScrolling" format="boolean" />
+        <attr name="srlEnableScrollContentWhenLoaded" format="boolean" />
+        <attr name="srlEnableScrollContentWhenRefreshed" format="boolean" />
+        <attr name="srlEnableLoadMoreWhenContentNotFull" format="boolean" />
+        <attr name="srlEnableFooterFollowWhenLoadFinished" format="boolean" />
+        <attr name="srlEnableFooterFollowWhenNoMoreData" format="boolean" />
+        <attr name="srlEnableClipHeaderWhenFixedBehind" format="boolean" />
+        <attr name="srlEnableClipFooterWhenFixedBehind" format="boolean" />
+        <attr name="srlEnableOverScrollDrag" format="boolean" />
+        <attr name="srlDisableContentWhenRefresh" format="boolean" />
+        <attr name="srlDisableContentWhenLoading" format="boolean" />
+        <attr name="srlFixedHeaderViewId" format="reference" />
+        <attr name="srlFixedFooterViewId" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="SmartRefreshLayout_Layout">
+        <attr name="layout_srlSpinnerStyle" />
+        <attr name="layout_srlBackgroundColor" format="color" />
+    </declare-styleable>
+
+    <!--经典头部-->
+    <declare-styleable name="ClassicsHeader">
+        <attr name="srlClassicsSpinnerStyle" />
+        <attr name="srlPrimaryColor" />
+        <attr name="srlAccentColor" />
+        <attr name="srlFinishDuration" />
+        <attr name="srlDrawableArrow" />
+        <attr name="srlDrawableProgress" />
+        <attr name="srlDrawableMarginRight" />
+        <attr name="srlDrawableSize" />
+        <attr name="srlDrawableArrowSize" />
+        <attr name="srlDrawableProgressSize" />
+        <attr name="srlTextSizeTitle" />
+        <attr name="srlTextSizeTime" />
+        <attr name="srlTextTimeMarginTop" format="dimension" />
+        <attr name="srlEnableLastTime" format="boolean" />
+        <attr name="srlTextPulling" />
+        <attr name="srlTextLoading" />
+        <attr name="srlTextRelease" />
+        <attr name="srlTextFinish" />
+        <attr name="srlTextFailed" />
+        <attr name="srlTextUpdate" />
+        <attr name="srlTextSecondary" />
+        <attr name="srlTextRefreshing" />
+    </declare-styleable>
+
+    <!--经典脚部-->
+    <declare-styleable name="ClassicsFooter">
+        <attr name="srlClassicsSpinnerStyle" />
+        <attr name="srlPrimaryColor" />
+        <attr name="srlAccentColor" />
+        <attr name="srlFinishDuration" />
+        <attr name="srlTextSizeTitle" />
+        <attr name="srlDrawableArrow" />
+        <attr name="srlDrawableProgress" />
+        <attr name="srlDrawableMarginRight" />
+        <attr name="srlDrawableSize" />
+        <attr name="srlDrawableArrowSize" />
+        <attr name="srlDrawableProgressSize" />
+        <attr name="srlTextPulling" />
+        <attr name="srlTextRelease" />
+        <attr name="srlTextLoading" />
+        <attr name="srlTextRefreshing" />
+        <attr name="srlTextFinish" />
+        <attr name="srlTextFailed" />
+        <attr name="srlTextNothing" />
+    </declare-styleable>
+
+    <declare-styleable name="SideIndexBar">
+        <attr name="sideIndexTextSize" format="dimension" />
+        <attr name="sideIndexTextColor" format="reference" />
+        <attr name="sideIndexSelectedTextColor" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="SwitchButton">
+        <attr name="sb_shadow_radius" format="reference|dimension"/>
+        <attr name="sb_shadow_offset" format="reference|dimension"/>
+        <attr name="sb_shadow_color" format="reference|color"/>
+        <attr name="sb_uncheck_color" format="reference|color"/>
+        <attr name="sb_checked_color" format="reference|color"/>
+
+        <attr name="sb_border_width" format="reference|dimension"/>
+        <attr name="sb_checkline_color" format="reference|color"/>
+        <attr name="sb_checkline_width" format="reference|dimension"/>
+        <attr name="sb_uncheckcircle_color" format="reference|color"/>
+        <attr name="sb_uncheckcircle_width" format="reference|dimension"/>
+        <attr name="sb_uncheckcircle_radius" format="reference|dimension"/>
+
+        <attr name="sb_checked" format="reference|boolean"/>
+        <attr name="sb_shadow_effect" format="reference|boolean"/>
+        <attr name="sb_effect_duration" format="reference|integer"/>
+        <attr name="sb_button_color" format="reference|color"/>
+        <attr name="sb_show_indicator" format="reference|boolean"/>
+        <attr name="sb_background" format="reference|color"/>
+        <attr name="sb_enable_effect" format="reference|boolean"/>
+    </declare-styleable>
+
+</resources>

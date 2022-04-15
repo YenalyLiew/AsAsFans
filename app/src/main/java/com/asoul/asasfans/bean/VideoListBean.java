@@ -1,6 +1,8 @@
 package com.asoul.asasfans.bean;
 
 
+import androidx.annotation.NonNull;
+
 import java.util.List;
 
 public class VideoListBean {

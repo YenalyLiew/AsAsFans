@@ -202,4 +202,11 @@ public class VideoBean {
     }
 
 
+    @Override
+    public String toString() {
+        return "VideoBean{" +
+                "bvid='" + bvid + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

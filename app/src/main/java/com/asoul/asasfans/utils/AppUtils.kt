@@ -1,8 +1,8 @@
 package com.asoul.asasfans.utils
 
+import android.content.pm.PackageManager
 import androidx.core.content.pm.PackageInfoCompat
 import com.fairhr.module_support.utils.ContextUtil
-
 
 fun String.toVersionCode(): Int {
     val versionSplit = this.split('.')
@@ -17,4 +17,17 @@ val localVersionCode: Long
                 0
             )
         return PackageInfoCompat.getLongVersionCode(packageInfo)
+    }
+
+val localVersion: String?
+    get() {
+        return try {
+            ContextUtil.getContext().packageManager.getPackageInfo(
+                ContextUtil.getContext().packageName,
+                0
+            ).versionName
+        } catch (e: PackageManager.NameNotFoundException) {
+            e.printStackTrace()
+            null
+        }
     }

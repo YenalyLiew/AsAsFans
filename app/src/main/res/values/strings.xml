@@ -43,4 +43,22 @@
     <string name="up">up主</string>
     <string name="more">更多</string>
     <string name="search">搜索</string>
+    <string name="change_theme">切换主题</string>
+    <string name="theme">主题</string>
+    <string name="general">常规</string>
+    <string name="black_list">黑名单</string>
+    <string name="black_list_manage">黑名单管理</string>
+    <string name="cache">缓存</string>
+    <string name="clear_photo_cache">清理图片缓存</string>
+    <string name="clear_web_cache">清理网页缓存</string>
+    <string name="about">关于</string>
+    <string name="check_update">检查版本更新</string>
+    <string name="feedback">意见反馈/提交BUG</string>
+    <string name="about_this">关于本软件</string>
+    <string name="pay_attention">请注意</string>
+    <string name="no_problem">没问题</string>
+    <string name="let_it_go">算了吧</string>
+
+    <string name="introduce">介绍</string>
+    <string name="developer">开发者</string>
 </resources>

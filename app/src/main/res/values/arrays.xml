@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="fan_art_order">
+        <item>最新发布</item>
+        <item>B站热门</item>
+    </string-array>
+    <string-array name="fan_art_date">
+        <item>无榜单</item>
+        <item>日榜</item>
+        <item>周榜</item>
+        <item>月榜</item>
+    </string-array>
+    <string-array name="entries_theme">
+        <item name="ava">向晚之色</item>
+        <item name="bella">贝拉之色</item>
+        <item name="carol">珈乐之色</item>
+        <item name="diana">嘉然之色</item>
+        <item name="eileen">乃琳之色</item>
+    </string-array>
+    <string-array name="entries_value_theme">
+        <item name="ava">0</item>
+        <item name="bella">1</item>
+        <item name="carol">2</item>
+        <item name="diana">3</item>
+        <item name="eileen">4</item>
+    </string-array>
+</resources>

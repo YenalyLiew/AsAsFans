@@ -24,7 +24,26 @@
     <color name="tab_text_selected">#0084e8</color>
     <color name="tab_text_normal">#7597b3</color>
 
+    <color name="text_color">#FF000000</color>
+    <color name="text_color_reverse">#FFFFFFFF</color>
+
     <color name="ava_blue_200">#ffa5cde6</color>
     <color name="ava_blue_500">#ff90c1df</color>
     <color name="ava_blue_700">#ff387cad</color>
+
+    <color name="bella_orange_200">#ffe98c84</color>
+    <color name="bella_orange_500">#ffe46f65</color>
+    <color name="bella_orange_700">#ffb9342f</color>
+
+    <color name="carol_purple_200">#ffc5b1ec</color>
+    <color name="carol_purple_500">#ffb89ee7</color>
+    <color name="carol_purple_700">#ff865aa7</color>
+
+    <color name="diana_pink_200">#ffdc8da3</color>
+    <color name="diana_pink_500">#ffd4708c</color>
+    <color name="diana_pink_700">#ffb33a67</color>
+
+    <color name="eileen_blue_200">#ff7885a7</color>
+    <color name="eileen_blue_500">#ff576691</color>
+    <color name="eileen_blue_700">#ff30384f</color>
 </resources>

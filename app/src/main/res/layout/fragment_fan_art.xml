@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="FanArtDataBinding">
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/fan_art_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimaryVariant"
+                android:theme="@style/ThemeOverlay.Material3.Dark"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:popupTheme="@style/ThemeOverlay.Material3.Light"
+                app:title="@string/fan_art_pic"
+                app:titleTextColor="@color/white" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="?attr/colorPrimary"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/spinner_order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="16dp"
+                    android:dropDownVerticalOffset="45dp"
+                    android:entries="@array/fan_art_order" />
+
+                <Spinner
+                    android:id="@+id/spinner_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:dropDownVerticalOffset="45dp"
+                    android:entries="@array/fan_art_date" />
+
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:scrollbars="none">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/fan_art_chip_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleLine="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_asoul"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/a_soul" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_ava"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ava" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_bella"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bella" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_carol"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/carol" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_diana"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/diana" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_eileen"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/eileen" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_bella_carol"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bella_carol" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_eileen_bella"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/eileen_bella" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_diana_ava"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/diana_ava" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_eileen_carol"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/eileen_carol" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_carol_eileen"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/carol_eileen" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_eileen_ava"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/eileen_ava" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_eileen_diana"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/eileen_diana" />
+                </com.google.android.material.chip.ChipGroup>
+
+            </HorizontalScrollView>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.fairhr.module_support.widget.refresh.SmartRefreshLayout
+            android:id="@+id/srl_fan_art"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fan_art_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false" />
+
+        </com.fairhr.module_support.widget.refresh.SmartRefreshLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

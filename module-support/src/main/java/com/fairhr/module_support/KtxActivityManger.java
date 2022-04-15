@@ -1,21 +1,20 @@
 package com.fairhr.module_support;
 
 import android.app.Activity;
+import android.os.Process;
 
-import java.lang.ref.WeakReference;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import android.os.Process;
 
 public class KtxActivityManger {
 
-    private static List<Activity> mActivityList = new LinkedList<>();
+    private static final List<Activity> mActivityList = new LinkedList<>();
 
-    public static Activity getCurrentActivity(){
-        if(mActivityList.isEmpty()){
+    public static Activity getCurrentActivity() {
+        if (mActivityList.isEmpty()) {
             return null;
-        }else{
+        } else {
             return mActivityList.get(mActivityList.size() - 1);
         }
     }
@@ -38,16 +37,14 @@ public class KtxActivityManger {
      * activity出栈
      */
     public static void popActivity(Activity activity) {
-        if (mActivityList.contains(activity)) {
-            mActivityList.remove(activity);
-        }
+        mActivityList.remove(activity);
     }
 
     /**
      * 关闭当前activity
      */
     public static void finishCurrentActivity() {
-        if(getCurrentActivity() != null){
+        if (getCurrentActivity() != null) {
             getCurrentActivity().finish();
         }
     }
@@ -62,10 +59,11 @@ public class KtxActivityManger {
 
     /**
      * 关闭指定类名的所有Activity
-     * @param cls
+     *
+     * @param cls class
      */
     public static void finishActivity(Class<?> cls) {
-        if (mActivityList != null) {
+        if (!mActivityList.isEmpty()) {
             // 使用迭代器进行安全删除
             for (Iterator<Activity> it = mActivityList.iterator(); it.hasNext(); ) {
                 Activity activity = it.next();
@@ -86,10 +84,17 @@ public class KtxActivityManger {
      * 关闭所有的activity
      */
     public static void finishAllActivity() {
-        if(!mActivityList.isEmpty()){
-            for (int i = 0; i < mActivityList.size(); i++) {
-                Activity activity = mActivityList.get(i);
+        if (!mActivityList.isEmpty()) {
+            for (Activity activity : mActivityList) {
                 activity.finish();
+            }
+        }
+    }
+
+    public static void recreateAllActivity() {
+        if (!mActivityList.isEmpty()) {
+            for (Activity activity : mActivityList) {
+                activity.recreate();
             }
         }
     }
@@ -113,16 +118,4 @@ public class KtxActivityManger {
         finishAllActivity();
     }
 
-    /**
-     * 一键回到主页
-     */
-    public static void directToMain() {
-        if (mActivityList.size() > 1) {
-            for (int i = mActivityList.size() - 1; i < mActivityList.size(); i--) {
-                if (mActivityList.get(i).getLocalClassName() != "com.fairhr.ers.activity.MainActivity") {
-                    mActivityList.get(i).finish();
-                }
-            }
-        }
-    }
 }

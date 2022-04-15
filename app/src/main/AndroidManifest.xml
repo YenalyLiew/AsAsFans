@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AsAsFans"
+        android:theme="@style/Theme.AsAsFans.Launch"
         android:usesCleartextTraffic="true"
         tools:replace="android:label,android:icon,android:name,android:theme,android:allowBackup">
 
@@ -48,6 +48,18 @@
 
         </activity>
 
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity
+            android:name=".activity.AboutActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+
+        </activity>
 
     </application>
 

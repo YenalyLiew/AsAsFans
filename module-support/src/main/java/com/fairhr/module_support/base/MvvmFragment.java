@@ -20,8 +20,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.fairhr.module_support.AppViewModel;
-import com.fairhr.module_support.core.FrameConfigManager;
-import com.fairhr.module_support.utils.LogUtil;
 
 
 import java.lang.reflect.ParameterizedType;
@@ -58,7 +56,7 @@ public abstract class MvvmFragment<DB extends ViewDataBinding, VM extends BaseVi
         mContentView = view;
 
         initView();
-        registerLiveDateObserve();
+        registerLiveDataObserve();
         initServiceData();
     }
 
@@ -154,7 +152,7 @@ public abstract class MvvmFragment<DB extends ViewDataBinding, VM extends BaseVi
      * 注册livedata监听器
      */
     @SuppressLint("FragmentLiveDataObserve")
-    public void registerLiveDateObserve() {
+    public void registerLiveDataObserve() {
         if (mViewModel != null) {
             mViewModel.getShowLoadingLiveData().observe(this, new Observer<Void>() {
                 @Override

@@ -3,6 +3,7 @@ package com.asoul.asasfans.viewmodel;
 import android.app.Application;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -21,11 +22,9 @@ import java.lang.reflect.Type;
 
 public class MainViewModel extends BaseViewModel {
 
-
-
     private MutableLiveData<GithubVersionBean> mVersion;
 
-    public LiveData<GithubVersionBean> getmVersion(){
+    public LiveData<GithubVersionBean> getmVersion() {
         return mVersion;
     }
 
@@ -36,33 +35,30 @@ public class MainViewModel extends BaseViewModel {
     }
 
     //获取认证问题
-    public void getVersion(){
+    public void getVersion() {
 
 
+        ErsNetManager.getInstance().getRequest(ServiceConstants.VERSION, new ErsDataObserver() {
+            @Override
+            public void onSuccess(String result) {
 
+                Type type = new TypeToken<GithubVersionBean>() {
+                }.getType();
+                GithubVersionBean retList = GsonUtils.fromJson(result, type);
+                mVersion.postValue(retList);
+            }
 
-        ErsNetManager.getInstance().getRequestSpecial(ServiceConstants.VERSION, new ErsDataObserver(){
-                    @Override
-                    public void onSuccess(String result) {
+            @Override
+            public void onServiceError(int errorCode, String errorMsg) {
+                LogUtil.d("JSONObject", "errorMsg111=?:" + errorMsg);
+            }
 
-                        Type type = new TypeToken<GithubVersionBean>() {
-                        }.getType();
-                        GithubVersionBean retList= GsonUtils.fromJson(result,type);
-                        mVersion.postValue(retList);
-                    }
-
-                    @Override
-                    public void onServiceError(int errorCode, String errorMsg) {
-                        LogUtil.d("JSONObject","errorMsg111=?:"+errorMsg);
-                    }
-
-                    @Override
-                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
-                        LogUtil.d("JSONObject","errorMsg111=?:"+e.toString());
-                    }
-                });
+            @Override
+            public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                LogUtil.d("JSONObject", "errorMsg111=?:" + e.toString());
+            }
+        });
     }
-
 
 
 }

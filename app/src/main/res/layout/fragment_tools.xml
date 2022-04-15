@@ -7,10 +7,38 @@
     </data>
 
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tools_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimaryVariant"
+            android:theme="@style/ThemeOverlay.Material3.Dark"
+            app:popupTheme="@style/ThemeOverlay.Material3.Light"
+            app:title="@string/toolbox"
+            app:titleTextColor="@color/white" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/tools_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:padding="8dp">
+
+            <LinearLayout
+                android:id="@+id/tools_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
 
 </layout>

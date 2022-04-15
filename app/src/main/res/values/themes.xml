@@ -1,17 +1,116 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.AsAsFans" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.AsAsFans.Ava" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/ava_blue_500</item>
-        <item name="colorPrimaryVariant">@color/ava_blue_700</item>
+        <item name="colorPrimary">@color/ava_blue_200</item>
+        <item name="colorPrimaryVariant">@color/ava_blue_500</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="android:windowLightStatusBar" tools:targetApi="23">false</item>
+    </style>
+
+    <style name="Theme.AsAsFans.Bella" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/bella_orange_200</item>
+        <item name="colorPrimaryVariant">@color/bella_orange_500</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.AsAsFans.Carol" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/carol_purple_200</item>
+        <item name="colorPrimaryVariant">@color/carol_purple_500</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.AsAsFans.Diana" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/diana_pink_200</item>
+        <item name="colorPrimaryVariant">@color/diana_pink_500</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.AsAsFans.Eileen" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/eileen_blue_200</item>
+        <item name="colorPrimaryVariant">@color/eileen_blue_500</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.AsAsFans.Launch" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="Theme.AsAsFans.About.Ava" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/ava_blue_200</item>
+        <item name="colorPrimaryDark">@color/ava_blue_200</item>
+        <item name="colorAccent">@color/ava_blue_200</item>
+        <item name="aboutPageHeaderBackground">@color/ava_blue_200</item>
+        <item name="aboutPageHeaderContentScrim">@color/ava_blue_500</item>
+    </style>
+
+    <style name="Theme.AsAsFans.About.Bella" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/bella_orange_200</item>
+        <item name="colorPrimaryDark">@color/bella_orange_200</item>
+        <item name="colorAccent">@color/bella_orange_200</item>
+        <item name="aboutPageHeaderBackground">@color/bella_orange_200</item>
+        <item name="aboutPageHeaderContentScrim">@color/bella_orange_500</item>
+    </style>
+
+    <style name="Theme.AsAsFans.About.Carol" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/carol_purple_200</item>
+        <item name="colorPrimaryDark">@color/carol_purple_200</item>
+        <item name="colorAccent">@color/carol_purple_200</item>
+        <item name="aboutPageHeaderBackground">@color/carol_purple_200</item>
+        <item name="aboutPageHeaderContentScrim">@color/carol_purple_500</item>
+    </style>
+
+    <style name="Theme.AsAsFans.About.Diana" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/diana_pink_200</item>
+        <item name="colorPrimaryDark">@color/diana_pink_200</item>
+        <item name="colorAccent">@color/diana_pink_200</item>
+        <item name="aboutPageHeaderBackground">@color/diana_pink_200</item>
+        <item name="aboutPageHeaderContentScrim">@color/diana_pink_500</item>
+    </style>
+
+    <style name="Theme.AsAsFans.About.Eileen" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/eileen_blue_200</item>
+        <item name="colorPrimaryDark">@color/eileen_blue_200</item>
+        <item name="colorAccent">@color/eileen_blue_200</item>
+        <item name="aboutPageHeaderBackground">@color/eileen_blue_200</item>
+        <item name="aboutPageHeaderContentScrim">@color/eileen_blue_500</item>
     </style>
 </resources>

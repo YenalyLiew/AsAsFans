@@ -15,21 +15,25 @@ import com.asoul.asasfans.R
 import com.asoul.asasfans.databinding.MainDataBinding
 import com.fairhr.module_support.KtxActivityManger
 import com.fairhr.module_support.base.MvvmActivity
+import com.fairhr.module_support.utils.SPreferenceUtils
+import com.fairhr.module_support.utils.SystemStatusUtil
 import com.fairhr.module_support.utils.ToastUtils
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity: MvvmActivity<MainDataBinding, MainViewModel>() {
+class MainActivity : MvvmActivity<MainDataBinding, MainViewModel>() {
 
 
     var clickBackTime = 0L
-    var navHostFragment: NavHostFragment ?= null
-    var navController: NavController ?= null
+    var navHostFragment: NavHostFragment? = null
+    var navController: NavController? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun isWindowFullMode(): Boolean {
+        return false
+    }
 
-        window.statusBarColor = ResourcesCompat.getColor(resources, R.color.ava_blue_700, theme)
+    override fun isStatusIconDarkMode(): Boolean {
+        return false
     }
 
     override fun initContentView(): Int {
@@ -70,7 +74,7 @@ class MainActivity: MvvmActivity<MainDataBinding, MainViewModel>() {
     override fun registerLiveDataObserve() {
         super.registerLiveDataObserve()
         mViewModel.getmVersion().observe(this, Observer<GithubVersionBean> { GithubVersionBean ->
-            if (GithubVersionBean !=null){
+            if (GithubVersionBean != null) {
 
                 val latestVersion = GithubVersionBean.name.substringAfter('v')
                 if (latestVersion.toVersionCode() > localVersionCode) {
@@ -103,5 +107,8 @@ class MainActivity: MvvmActivity<MainDataBinding, MainViewModel>() {
         }
     }
 
-
+    override fun setTheme() {
+        val theme = SPreferenceUtils.readInt(this, "theme", R.style.Theme_AsAsFans_Ava)
+        setTheme(theme)
+    }
 }

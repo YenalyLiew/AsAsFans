@@ -1,8 +1,14 @@
 package com.asoul.asasfans.fragment
 
+import android.content.Intent
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import com.asoul.asasfans.adapter.VideoFragmentAdapter
 import com.asoul.asasfans.viewmodel.VideoViewModel
 import com.asoul.asasfans.R
+import com.asoul.asasfans.activity.SettingsActivity
 import com.asoul.asasfans.databinding.VideoDataBinding
 import com.fairhr.module_support.base.MvvmFragment
 import com.google.android.material.tabs.TabLayoutMediator
@@ -11,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_video.*
 class VideoFragment: MvvmFragment<VideoDataBinding, VideoViewModel>()  {
 
 
-    var videoFragmentAdapter: VideoFragmentAdapter? = null
+    private var videoFragmentAdapter: VideoFragmentAdapter? = null
 
 
     override fun initContentView(): Int { return R.layout.fragment_video }
@@ -25,7 +31,10 @@ class VideoFragment: MvvmFragment<VideoDataBinding, VideoViewModel>()  {
 
     override fun initView() {
         super.initView()
-
+        setHasOptionsMenu(true)
+        (requireActivity() as AppCompatActivity).apply {
+            setSupportActionBar(video_toolbar)
+        }
         initAdapter()
     }
 
@@ -46,4 +55,18 @@ class VideoFragment: MvvmFragment<VideoDataBinding, VideoViewModel>()  {
         }.attach()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_main, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.settings -> {
+                val intent = Intent(activity, SettingsActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return true
+    }
 }

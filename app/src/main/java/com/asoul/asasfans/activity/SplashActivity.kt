@@ -8,20 +8,23 @@ import com.asoul.asasfans.R
 import com.asoul.asasfans.databinding.SplashDataBinding
 import com.fairhr.module_support.base.BaseViewModel
 import com.fairhr.module_support.base.MvvmActivity
+import com.fairhr.module_support.utils.SPreferenceUtils
 
 @SuppressLint("CustomSplashScreen")
-class SplashActivity: MvvmActivity<SplashDataBinding, BaseViewModel>() {
+class SplashActivity : MvvmActivity<SplashDataBinding, BaseViewModel>() {
 
 
-    private val handler = Handler(Looper.getMainLooper()) { goMainActivity()
-        true }
+    private val handler = Handler(Looper.getMainLooper()) {
+        goMainActivity()
+        true
+    }
 
     override fun initContentView(): Int {
         return R.layout.activity_splash
     }
 
     override fun initViewModel(): BaseViewModel? {
-       return null
+        return null
     }
 
     override fun initDataBindingVariable() {
@@ -44,4 +47,8 @@ class SplashActivity: MvvmActivity<SplashDataBinding, BaseViewModel>() {
         finish()
     }
 
+    override fun setTheme() {
+        val theme = SPreferenceUtils.readInt(this, "theme", R.style.Theme_AsAsFans_Ava)
+        setTheme(theme)
+    }
 }

@@ -16,6 +16,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.fairhr.module_support.AppViewModel;
 import com.fairhr.module_support.KtxActivityManger;
 import com.fairhr.module_support.utils.LogUtil;
+import com.fairhr.module_support.utils.SPreferenceUtils;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -28,6 +29,7 @@ public abstract class MvvmActivity<DB extends ViewDataBinding, VM extends BaseVi
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        setTheme();
         super.onCreate(savedInstanceState);
 //        if (FrameConfigManager.getInstance().isInitArouter())
         ARouter.getInstance().inject(this);
@@ -90,6 +92,11 @@ public abstract class MvvmActivity<DB extends ViewDataBinding, VM extends BaseVi
      * @return
      */
     public abstract VM initViewModel();
+
+    /**
+     * 初始化主题
+     */
+    public abstract void setTheme();
 
     /**
      * 初始化DataBinding常量

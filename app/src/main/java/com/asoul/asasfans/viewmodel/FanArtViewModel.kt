@@ -7,11 +7,13 @@ import androidx.lifecycle.MutableLiveData
 import com.asoul.asasfans.bean.ImageDataBean
 import com.fairhr.module_support.base.BaseViewModel
 import com.fairhr.module_support.constants.ServiceConstants
-import com.fairhr.module_support.network.ErsNetManager
-import com.fairhr.module_support.tools.inter.ErsDataObserver
+import com.fairhr.module_support.network.YenalyNetManager
 import com.fairhr.module_support.utils.GsonUtils
 import com.fairhr.module_support.utils.UrlUtils
+import com.google.gson.JsonSyntaxException
 import com.google.gson.reflect.TypeToken
+import io.reactivex.rxjava3.core.Observer
+import io.reactivex.rxjava3.disposables.Disposable
 
 /**
  * @ProjectName : AsAsFans
@@ -47,45 +49,33 @@ class FanArtViewModel(application: Application) : BaseViewModel(application) {
         if (sort.isNotBlank()) params["sort"] = sort
         if (ctime.isNotBlank()) params["ctime"] = ctime
 
-        ErsNetManager.getInstance().getRequest(
+        YenalyNetManager.getRequest(
             UrlUtils.formatUrl(
                 ServiceConstants.FAN_ART_BASE,
                 ServiceConstants.FAN_ART_TITLE,
                 params
-            ), object : ErsDataObserver() {
+            ), object : Observer<String> {
+                override fun onSubscribe(d: Disposable) {
+                }
+
+                override fun onNext(t: String) {
+                    if (t.contains("\\u6ca1\\u6709\\u66f4\\u591a\\u6570\\u636e")) {
+                        _mFanArtList.postValue(Result.failure(RuntimeException("没有更多数据")))
+                    } else {
+                        val typeToken = object : TypeToken<List<ImageDataBean>>() {}.type
+                        val list = GsonUtils.fromJson<List<ImageDataBean>>(t, typeToken)
+                        _mFanArtList.postValue(Result.success(list))
+                    }
+                }
+
                 override fun onError(e: Throwable) {
-                    Log.d(
-                        "fan_art", UrlUtils.formatUrl(
-                            ServiceConstants.FAN_ART_BASE,
-                            ServiceConstants.FAN_ART_TITLE,
-                            params
-                        )
-                    )
                     _mFanArtList.postValue(Result.failure(e))
                 }
 
-                override fun onSuccess(result: String?) {
-                    Log.d(
-                        "fan_art", UrlUtils.formatUrl(
-                            ServiceConstants.FAN_ART_BASE,
-                            ServiceConstants.FAN_ART_TITLE,
-                            params
-                        )
-                    )
-                    val typeToken = object : TypeToken<List<ImageDataBean>>() {}.type
-                    val list = GsonUtils.fromJson<List<ImageDataBean>>(result, typeToken)
-                    _mFanArtList.postValue(Result.success(list))
+                override fun onComplete() {
                 }
 
-                override fun onServiceError(errorCode: Int, errorMsg: String?) {
-                    Log.d(
-                        "fan_art", UrlUtils.formatUrl(
-                            ServiceConstants.FAN_ART_BASE,
-                            ServiceConstants.FAN_ART_TITLE,
-                            params
-                        )
-                    )
-                }
-            })
+            }
+        )
     }
 }

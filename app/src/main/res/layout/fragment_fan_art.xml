@@ -34,18 +34,32 @@
 
                 <Spinner
                     android:id="@+id/spinner_order"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="16dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="?attr/colorPrimary"
                     android:dropDownVerticalOffset="45dp"
-                    android:entries="@array/fan_art_order" />
+                    android:entries="@array/fan_art_order"
+                    android:popupBackground="?attr/colorPrimary" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@color/half_tp_grey" />
 
                 <Spinner
                     android:id="@+id/spinner_date"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="?attr/colorPrimary"
                     android:dropDownVerticalOffset="45dp"
-                    android:entries="@array/fan_art_date" />
+                    android:entries="@array/fan_art_date"
+                    android:popupBackground="?attr/colorPrimary" />
 
             </LinearLayout>
 
@@ -172,7 +186,8 @@
                 android:id="@+id/fan_art_rv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:clipToPadding="false" />
+                android:clipToPadding="false"
+                android:overScrollMode="never" />
 
         </com.fairhr.module_support.widget.refresh.SmartRefreshLayout>
 

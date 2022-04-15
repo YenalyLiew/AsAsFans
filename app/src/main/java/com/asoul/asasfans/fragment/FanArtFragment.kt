@@ -3,6 +3,7 @@ package com.asoul.asasfans.fragment
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.asoul.asasfans.R
 import com.asoul.asasfans.adapter.FanArtAdapter
@@ -37,18 +38,56 @@ class FanArtFragment : MvvmFragment<FanArtDataBinding, FanArtViewModel>() {
         initChip()
         initSpinner()
         initEvent()
+
+        mViewModel.getFanArtList(
+            CURRENT_PAGE,
+            sort = mViewModel.fanArtOrder,
+            part = mViewModel.fanArtPart,
+            rank = mViewModel.fanArtDate
+        )
     }
 
     override fun registerLiveDataObserve() {
         super.registerLiveDataObserve()
+
+        var sort = mViewModel.fanArtOrder
+        var part = mViewModel.fanArtPart
+        var rank = mViewModel.fanArtDate
+
         mViewModel.mFanArtList.observe(this) { result ->
             val imageDataBean = result.getOrNull()
             if (imageDataBean != null) {
-                mViewModel.tempData.addAll(imageDataBean)
+
+                srl_fan_art.resetNoMoreData()
+
+                if (
+                    sort != mViewModel.fanArtOrder ||
+                    part != mViewModel.fanArtPart ||
+                    rank != mViewModel.fanArtDate
+                ) {
+                    mViewModel.tempData.clear()
+                    mViewModel.tempData.addAll(imageDataBean)
+                    sort = mViewModel.fanArtOrder
+                    part = mViewModel.fanArtPart
+                    rank = mViewModel.fanArtDate
+                }
+
+                if (imageDataBean.isNotEmpty()) {
+                    if (imageDataBean[0] !in mViewModel.tempData) {
+                        mViewModel.tempData.addAll(imageDataBean)
+                    }
+                }
+
+                srl_fan_art.finishLoadMore(true)
+
                 fanArtAdapter.setList(mViewModel.tempData)
             } else {
                 result.exceptionOrNull()?.printStackTrace()
-                "加载失败了捏".showShortToast()
+                if (result.exceptionOrNull()?.message == "没有更多数据") {
+                    srl_fan_art.finishLoadMoreWithNoMoreData()
+                } else {
+                    "加载失败了捏".showShortToast()
+                }
             }
         }
     }
@@ -74,6 +113,24 @@ class FanArtFragment : MvvmFragment<FanArtDataBinding, FanArtViewModel>() {
     }
 
     private fun initSpinner() {
+        val orderSpinnerAdapter = ArrayAdapter(
+            requireContext(),
+            R.layout.item_custom_spinner,
+            resources.getStringArray(R.array.fan_art_order)
+        )
+        val dateSpinnerAdapter = ArrayAdapter(
+            requireContext(),
+            R.layout.item_custom_spinner,
+            resources.getStringArray(R.array.fan_art_date)
+        )
+
+        spinner_order.adapter = orderSpinnerAdapter
+        spinner_date.adapter = dateSpinnerAdapter
+
+        // 防止一上来就触发Spinner的listener.
+        spinner_order.setSelection(-1, true)
+        spinner_date.setSelection(-1, true)
+
         spinner_order.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,

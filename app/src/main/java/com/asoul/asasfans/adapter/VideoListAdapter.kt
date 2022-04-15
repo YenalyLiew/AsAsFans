@@ -30,17 +30,15 @@ class VideoListAdapter(private val fragment: Fragment) :
         .error(R.drawable.load_failure)
         .diskCacheStrategy(DiskCacheStrategy.NONE)
 
-    override fun onItemViewHolderCreated(viewHolder: BaseViewHolder, viewType: Int) {
-        pic = viewHolder.getView(R.id.video_cover)
-        time = viewHolder.getView(R.id.video_duration)
-        title = viewHolder.getView(R.id.video_title)
-        up = viewHolder.getView(R.id.video_up)
-        views = viewHolder.getView(R.id.video_views)
-        comments = viewHolder.getView(R.id.video_comments)
-        partition = viewHolder.getView(R.id.video_partition)
-    }
-
     override fun convert(holder: BaseViewHolder, item: VideoBean) {
+
+        pic = holder.getView(R.id.video_cover)
+        time = holder.getView(R.id.video_duration)
+        title = holder.getView(R.id.video_title)
+        up = holder.getView(R.id.video_up)
+        views = holder.getView(R.id.video_views)
+        comments = holder.getView(R.id.video_comments)
+        partition = holder.getView(R.id.video_partition)
 
         time.text = item.duration.toInt().toDurationCase()
         title.text = item.title

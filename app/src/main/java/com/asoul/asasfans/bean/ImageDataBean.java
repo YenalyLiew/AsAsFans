@@ -1,6 +1,7 @@
 package com.asoul.asasfans.bean;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author: akari
@@ -63,6 +64,19 @@ public class ImageDataBean {
         this.pic_url = pic_url;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ImageDataBean that = (ImageDataBean) o;
+        return uid == that.uid && Objects.equals(dy_id, that.dy_id) && Objects.equals(name, that.name) && Objects.equals(face, that.face) && Objects.equals(pic_url, that.pic_url);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(dy_id, uid, name, face, pic_url);
+    }
+
     public static class PicUrlBean {
         /**
          * img_src : https://i0.hdslb.com/bfs/album/c3fb2e2b34d752803ee9f7115fa5e9ad5d9a2f91.jpg
@@ -116,6 +130,19 @@ public class ImageDataBean {
 
         public void setImg_height(double img_height) {
             this.img_height = img_height;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            PicUrlBean that = (PicUrlBean) o;
+            return Double.compare(that.img_size, img_size) == 0 && Double.compare(that.img_width, img_width) == 0 && Double.compare(that.img_height, img_height) == 0 && Objects.equals(img_src, that.img_src) && Objects.equals(img_tags, that.img_tags);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(img_src, img_size, img_tags, img_width, img_height);
         }
     }
 }

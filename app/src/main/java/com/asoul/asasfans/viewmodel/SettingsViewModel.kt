@@ -7,9 +7,12 @@ import com.asoul.asasfans.bean.GithubVersionBean
 import com.fairhr.module_support.base.BaseViewModel
 import com.fairhr.module_support.constants.ServiceConstants
 import com.fairhr.module_support.network.ErsNetManager
+import com.fairhr.module_support.network.YenalyNetManager
 import com.fairhr.module_support.tools.inter.ErsDataObserver
 import com.fairhr.module_support.utils.GsonUtils
 import com.google.gson.reflect.TypeToken
+import io.reactivex.rxjava3.core.Observer
+import io.reactivex.rxjava3.disposables.Disposable
 
 /**
  * @ProjectName : AsAsFans
@@ -23,23 +26,22 @@ class SettingsViewModel(application: Application) : BaseViewModel(application) {
     val mVersion: LiveData<Result<GithubVersionBean?>> = _mVersion
 
     fun getVersion() {
-        ErsNetManager.getInstance()
-            .getRequest(ServiceConstants.VERSION, object : ErsDataObserver() {
-                override fun onError(e: Throwable) {
-                    e.printStackTrace()
-                    _mVersion.postValue(Result.failure(e))
-                }
+        YenalyNetManager.getRequest(ServiceConstants.VERSION, object : Observer<String> {
+            override fun onSubscribe(d: Disposable) {
+            }
 
-                override fun onSuccess(result: String?) {
-                    val type = object : TypeToken<GithubVersionBean?>() {}.type
-                    val retList: GithubVersionBean? = GsonUtils.fromJson(result, type)
-                    _mVersion.postValue(Result.success(retList))
-                }
+            override fun onNext(t: String) {
+                val type = object : TypeToken<GithubVersionBean?>() {}.type
+                val retList: GithubVersionBean? = GsonUtils.fromJson(t, type)
+                _mVersion.postValue(Result.success(retList))
+            }
 
-                override fun onServiceError(errorCode: Int, errorMsg: String?) {
+            override fun onError(e: Throwable) {
+                _mVersion.postValue(Result.failure(e))
+            }
 
-                }
-            })
+            override fun onComplete() {
+            }
+        })
     }
-
 }

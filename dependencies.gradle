@@ -2,7 +2,7 @@ ext {
     //App
     applicationId = "com.fairhr.ers"
     //versionCode
-    versionCode = generateVersionCode()
+    versionCode = 1 //generateVersionCode()
     //versionName
     versionName = "1.0.0"
     //Sdk

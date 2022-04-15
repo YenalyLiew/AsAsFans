@@ -4,7 +4,6 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.asoul.asasfans.R
 import com.asoul.asasfans.adapter.VideoListAdapter
@@ -91,12 +90,14 @@ class VideoShowFragment : MvvmFragment<VideoShowDataBinding, VideoShowViewModel>
         super.registerLiveDataObserve()
         mViewModel.videoListData.observe(this) { videoListBean ->
 
-            mViewModel.tempData.addAll(videoListBean.result)
-
-            Log.d("video_data", videoListBean.result.toString())
-
-            sl_video.finishLoadMore(true)
-
+            if (videoListBean.result.isNotEmpty()) {
+                if (videoListBean.result[0] !in mViewModel.tempData) {
+                    mViewModel.tempData.addAll(videoListBean.result)
+                }
+                sl_video.finishLoadMore(true)
+            } else {
+                sl_video.finishLoadMoreWithNoMoreData()
+            }
             videoListAdapter!!.setList(mViewModel.tempData)
         }
     }

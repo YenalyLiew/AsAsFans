@@ -32,16 +32,15 @@ class FanArtAdapter(private val fragment: Fragment) :
         .error(R.drawable.load_failure)
         .diskCacheStrategy(DiskCacheStrategy.NONE)
 
-    override fun onItemViewHolderCreated(viewHolder: BaseViewHolder, viewType: Int) {
-        fanArt = viewHolder.getView(R.id.fan_art)
-        fanArtUp = viewHolder.getView(R.id.fan_art_up)
-        fanArtNum = viewHolder.getView(R.id.fan_art_num)
-    }
-
     override fun convert(holder: BaseViewHolder, item: ImageDataBean) {
+
+        fanArt = holder.getView(R.id.fan_art)
+        fanArtUp = holder.getView(R.id.fan_art_up)
+        fanArtNum = holder.getView(R.id.fan_art_num)
+
         fanArtUp.text = item.name
-        fanArtNum.text = item.pic_url?.size?.toString()
-        val firstFanArtUrl = item.pic_url?.get(0)
+        fanArtNum.text = item.pic_url.size.toString()
+        val firstFanArtUrl = item.pic_url[0]
         val layoutParams = fanArt.layoutParams as LinearLayout.LayoutParams
         val imageWidth: Double
         val imageHeight: Double

@@ -84,6 +84,7 @@ class FanArtFragment : MvvmFragment<FanArtDataBinding, FanArtViewModel>() {
             } else {
                 result.exceptionOrNull()?.printStackTrace()
                 if (result.exceptionOrNull()?.message == "没有更多数据") {
+                    fanArtAdapter.setList(mViewModel.tempData)
                     srl_fan_art.finishLoadMoreWithNoMoreData()
                 } else {
                     "加载失败了捏".showShortToast()

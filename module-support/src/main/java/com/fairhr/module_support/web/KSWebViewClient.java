@@ -2,7 +2,9 @@ package com.fairhr.module_support.web;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Build;
 import android.text.TextUtils;
@@ -68,8 +70,16 @@ public class KSWebViewClient extends WebViewClient {
     public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
         boolean result;
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
+
             String url = request.getUrl().toString();
-            result = shouldOverrideUrlLoading(view, url);
+            if (!url.startsWith("https:") && !url.startsWith("http:") ){
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                mContext.startActivity(intent);
+                result = true;
+            }else {
+                result = shouldOverrideUrlLoading(view, url);
+            }
+
         } else {
             result = super.shouldOverrideUrlLoading(view, request);
         }

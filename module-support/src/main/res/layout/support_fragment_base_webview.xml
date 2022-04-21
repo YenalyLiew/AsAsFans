@@ -43,14 +43,14 @@
             android:textSize="@dimen/dp_17" />
 
 
-        <ImageView
-            android:id="@+id/common_title_iv_kefu"
-            android:layout_width="@dimen/dp_23"
-            android:layout_height="@dimen/dp_23"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/dp_16"
-            android:src="@drawable/support_icon_kefu" />
+<!--        <ImageView-->
+<!--            android:id="@+id/common_title_iv_kefu"-->
+<!--            android:layout_width="@dimen/dp_23"-->
+<!--            android:layout_height="@dimen/dp_23"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_marginRight="@dimen/dp_16"-->
+<!--            android:src="@drawable/support_icon_kefu" />-->
 
     </RelativeLayout>
 

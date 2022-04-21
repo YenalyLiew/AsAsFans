@@ -6,6 +6,7 @@ import com.fairhr.module_support.constants.SpConstants;
 public class RouteUtils {
 
 
+
     /**
      * @description 打开web页
      * @param
@@ -24,11 +25,12 @@ public class RouteUtils {
      * 打开H5
      * @param url           H5url
      */
-    public static void openWebview(String url) {
+    public static void openWebview(String url, String title) {
 
             ARouter.getInstance().build(RouteNavigationPath.ModuleSupport.KS_FRAGMENT_ACTIVITY)
                     .withString(SpConstants.FRAGMENT_ACT_AROUTPATH, RouteNavigationPath.ModuleSupport.KS_WEB_VIEW)
                     .withString("url", url)
+                    .withString("title", title)
                     .navigation();
     }
 

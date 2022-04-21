@@ -22,7 +22,9 @@ import com.asoul.asasfans.databinding.ToolsDataBinding
 import com.asoul.asasfans.utils.dp
 import com.asoul.asasfans.utils.showShortToast
 import com.fairhr.module_support.base.MvvmFragment
+import com.fairhr.module_support.constants.ServiceConstants
 import com.fairhr.module_support.constants.ServiceConstants.*
+import com.fairhr.module_support.router.RouteUtils
 import com.fairhr.module_support.utils.ContextUtil
 import com.fairhr.module_support.webview.WebActivity
 import com.google.android.material.card.MaterialCardView
@@ -54,7 +56,7 @@ class ToolsFragment : MvvmFragment<ToolsDataBinding, ToolsViewModel>() {
             icon = R.drawable.icon_zwcc,
             text = R.string.zhi_net_check_duplicate,
             moreAction = { it, _, _, _ ->
-                it.click(ASOUL_CNKI)
+                it.click(ASOUL_CNKI,"枝网查重")
                 it.longClick(ASOUL_CNKI)
             }
         )
@@ -62,8 +64,8 @@ class ToolsFragment : MvvmFragment<ToolsDataBinding, ToolsViewModel>() {
             linearViewGroup,
             icon = R.drawable.icon_zhijiang_book,
             text = R.string.dialect_dict,
-            moreAction = { it, _, _, _ ->
-                it.click(DIALECT_DICT)
+            moreAction = { it, _, _, _->
+                it.click(DIALECT_DICT,"方言词典")
                 it.longClick(DIALECT_DICT)
             }
 
@@ -72,8 +74,8 @@ class ToolsFragment : MvvmFragment<ToolsDataBinding, ToolsViewModel>() {
             linearViewGroup,
             icon = R.drawable.icon_long_comment,
             text = R.string.little_composition,
-            moreAction = { it, _, _, _ ->
-                it.click(LITTLE_COMPOSITION)
+            moreAction = { it, _, _,_ ->
+                it.click(LITTLE_COMPOSITION,"小作文")
                 it.longClick(LITTLE_COMPOSITION)
             }
         )
@@ -81,8 +83,8 @@ class ToolsFragment : MvvmFragment<ToolsDataBinding, ToolsViewModel>() {
             linearViewGroup,
             icon = R.drawable.icon_asoul,
             text = R.string.group_chat_history_public,
-            moreAction = { it, _, _, _ ->
-                it.click(CHAT_RECORD_PUBLIC)
+            moreAction = { it, _, _,_ ->
+                it.click(CHAT_RECORD_PUBLIC,"论坛管理群聊天记录公示")
                 it.longClick(CHAT_RECORD_PUBLIC)
             }
         )
@@ -91,7 +93,7 @@ class ToolsFragment : MvvmFragment<ToolsDataBinding, ToolsViewModel>() {
             icon = R.drawable.icon_asoul,
             text = R.string.asoul_wiki,
             moreAction = { it, _, _, _ ->
-                it.click(ASOUL_WIKI)
+                it.click(ASOUL_WIKI,"一个魂维基百科 A-SOUL WIKI")
                 it.longClick(ASOUL_WIKI)
             }
         )
@@ -99,8 +101,8 @@ class ToolsFragment : MvvmFragment<ToolsDataBinding, ToolsViewModel>() {
             linearViewGroup,
             icon = R.drawable.icon_asoul,
             text = R.string.composition_generator,
-            moreAction = { it, _, _, _ ->
-                it.click(COMPOSITION_GENERATOR)
+            moreAction = { it, _, _,_ ->
+                it.click(COMPOSITION_GENERATOR,"小作文生成器")
                 it.longClick(COMPOSITION_GENERATOR)
             }
         )
@@ -108,8 +110,8 @@ class ToolsFragment : MvvmFragment<ToolsDataBinding, ToolsViewModel>() {
             linearViewGroup,
             icon = R.drawable.icon_asoul,
             text = R.string.art_and_record_site,
-            moreAction = { it, _, _, _ ->
-                it.click(ART_AND_RECORD)
+            moreAction = { it, _, _,_->
+                it.click(ART_AND_RECORD,"A-SOUL原画录播站")
                 it.longClick(ART_AND_RECORD)
             }
         )
@@ -117,8 +119,8 @@ class ToolsFragment : MvvmFragment<ToolsDataBinding, ToolsViewModel>() {
             linearViewGroup,
             icon = R.drawable.icon_asf_bak,
             text = R.string.status_search,
-            moreAction = { it, _, _, _ ->
-                it.click(STATUS_CHECK)
+            moreAction = { it, _, _,_ ->
+                it.click(STATUS_CHECK,"成分姬")
                 it.longClick(STATUS_CHECK)
             }
         )
@@ -126,8 +128,8 @@ class ToolsFragment : MvvmFragment<ToolsDataBinding, ToolsViewModel>() {
             linearViewGroup,
             icon = R.drawable.icon_asf_bak,
             text = R.string.QA_search,
-            moreAction = { it, _, _, _ ->
-                it.click(QA_SEARCH)
+            moreAction = { it, _, _,_->
+                it.click(QA_SEARCH,"QA查询（羊驼打过的太极）")
                 it.longClick(QA_SEARCH)
             }
         )
@@ -197,12 +199,9 @@ class ToolsFragment : MvvmFragment<ToolsDataBinding, ToolsViewModel>() {
         moreAction?.invoke(materialCardView, linearLayout, imageView, textView)
     }
 
-    private fun View.click(url: String) {
+    private fun View.click(url: String,title:String) {
         this.setOnClickListener {
-            val intent = Intent(requireContext(), WebActivity::class.java).apply {
-                putExtra("web_url", url)
-            }
-            startActivity(intent)
+            RouteUtils.openWebview(url,title)
         }
     }
 

@@ -65,7 +65,7 @@ import io.reactivex.rxjava3.disposables.Disposable;
  * PackageName:com.kingstar.ksfoudation.base
  * Description:webview
  */
-
+@Route(path = RouteNavigationPath.ModuleSupport.KS_WEB_VIEW)
 public class BaseWebViewFragment extends BaseSelectPictureFragment implements View.OnClickListener {
     private ImageView mCommonTitleTivLeft;
     private TextView mCommonTitleTvTitle;
@@ -83,7 +83,7 @@ public class BaseWebViewFragment extends BaseSelectPictureFragment implements Vi
     private ValueCallback<Uri[]> mUploadMessage;
     private List<CommonCheckedBean<String>> mCommonCheckedBeans = new ArrayList<>();
     private boolean mIsHideStatusbar;
-    private View mKeFu;
+//    private View mKeFu;
 
     @Nullable
     @Override
@@ -189,8 +189,8 @@ public class BaseWebViewFragment extends BaseSelectPictureFragment implements Vi
         mCommonTitleTvTitle = mRootView.findViewById(R.id.common_title_tv_title);
         mBaseWebRlTitle = mRootView.findViewById(R.id.base_web_rl_title);
         mBaseWebFlWebContainer = mRootView.findViewById(R.id.base_web_fl_web_container);
-        mBaseWebRl = mRootView.findViewById(R.id.base_web_rl);
-        mKeFu = mRootView.findViewById(R.id.common_title_iv_kefu);
+//        mBaseWebRl = mRootView.findViewById(R.id.base_web_rl);
+//        mKeFu = mRootView.findViewById(R.id.common_title_iv_kefu);
     }
 
     private void initWebView() {
@@ -339,12 +339,12 @@ public class BaseWebViewFragment extends BaseSelectPictureFragment implements Vi
         });
         mBaseWebFlWebContainer.addView(mKsWebView);
 
-        mKeFu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
+//        mKeFu.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
     }
 
     public void start2PdfActivity(String filePath,String fileName){

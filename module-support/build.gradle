@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -12,10 +11,9 @@ android {
         targetSdkVersion rootProject.targetSdkVersion
         resourcePrefix "support_"
         //ARouter
-        //ARouter
-        kapt {
-            arguments {
-                arg("AROUTER_MODULE_NAME", project.getName())
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ AROUTER_MODULE_NAME : project.getName() ]
             }
         }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

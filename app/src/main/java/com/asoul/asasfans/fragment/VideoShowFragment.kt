@@ -62,7 +62,8 @@ class VideoShowFragment : MvvmFragment<VideoShowDataBinding, VideoShowViewModel>
         videoListAdapter!!.setOnItemClickListener { adapter, _, position ->
             val bean = adapter.getItem(position) as VideoBean
             val bvid = bean.bvid
-            RouteUtils.openWebview(ServiceConstants.BILIBILI_TITLE + bvid)
+            val title = bean.title
+            RouteUtils.openWebview(ServiceConstants.BILIBILI_TITLE + bvid,title)
         }
 
         videoListAdapter!!.setOnItemLongClickListener { adapter, _, position ->

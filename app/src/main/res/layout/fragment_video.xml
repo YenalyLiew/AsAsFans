@@ -26,6 +26,7 @@
                 app:title="@string/app_name"
                 app:titleTextColor="@color/white" />
 
+
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/video_tab_layout"
                 android:layout_width="match_parent"

@@ -6,12 +6,16 @@ import android.os.Handler
 import android.os.Looper
 import com.asoul.asasfans.R
 import com.asoul.asasfans.databinding.SplashDataBinding
-import com.fairhr.module_support.base.BaseViewModel
+import com.asoul.asasfans.utils.showShortToast
+import com.asoul.asasfans.viewmodel.SplashViewModel
 import com.fairhr.module_support.base.MvvmActivity
+import com.fairhr.module_support.utils.GlideUtils
 import com.fairhr.module_support.utils.SPreferenceUtils
+import kotlinx.android.synthetic.main.activity_splash.*
+import kotlinx.android.synthetic.main.fragment_fan_art.*
 
 @SuppressLint("CustomSplashScreen")
-class SplashActivity : MvvmActivity<SplashDataBinding, BaseViewModel>() {
+class SplashActivity : MvvmActivity<SplashDataBinding, SplashViewModel>() {
 
 
     private val handler = Handler(Looper.getMainLooper()) {
@@ -23,8 +27,8 @@ class SplashActivity : MvvmActivity<SplashDataBinding, BaseViewModel>() {
         return R.layout.activity_splash
     }
 
-    override fun initViewModel(): BaseViewModel? {
-        return null
+    override fun initViewModel(): SplashViewModel? {
+        return createViewModel(this, SplashViewModel::class.java)
     }
 
     override fun initDataBindingVariable() {
@@ -34,8 +38,29 @@ class SplashActivity : MvvmActivity<SplashDataBinding, BaseViewModel>() {
     override fun initView() {
         super.initView()
 
-        handler.postDelayed({ handler.sendEmptyMessage(0) }, 500)
+        mViewModel.getbackground()
+
+        handler.postDelayed({ handler.sendEmptyMessage(0) }, 4000)
     }
+
+
+    override fun registerLiveDataObserve() {
+        super.registerLiveDataObserve()
+
+        mViewModel.mFanArtList.observe(this) { result ->
+            val imageDataBean = result.getOrNull()
+            if (imageDataBean != null) {
+                val num = (0..19).random()
+
+                GlideUtils.loadToImageView(this,imageDataBean[num].pic_url[0].img_src,iv_background)
+                tv_name.text = "UP主 : " + imageDataBean[num].name
+            }
+        }
+    }
+
+
+
+
 
 
     /**

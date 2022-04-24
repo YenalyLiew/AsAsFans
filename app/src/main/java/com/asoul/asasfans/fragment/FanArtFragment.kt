@@ -7,11 +7,17 @@ import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.asoul.asasfans.R
 import com.asoul.asasfans.adapter.FanArtAdapter
+import com.asoul.asasfans.bean.ImageDataBean
 import com.asoul.asasfans.databinding.FanArtDataBinding
 import com.asoul.asasfans.utils.showShortToast
 import com.asoul.asasfans.viewmodel.FanArtViewModel
 import com.fairhr.module_support.base.MvvmFragment
+import com.fairhr.module_support.constants.ServiceConstants
+import com.fairhr.module_support.router.RouteUtils
+import com.fairhr.module_support.utils.UrlUtils
 import kotlinx.android.synthetic.main.fragment_fan_art.*
+import kotlinx.android.synthetic.main.item_search.*
+import java.util.HashMap
 
 class FanArtFragment : MvvmFragment<FanArtDataBinding, FanArtViewModel>() {
 
@@ -104,6 +110,17 @@ class FanArtFragment : MvvmFragment<FanArtDataBinding, FanArtViewModel>() {
                 part = mViewModel.fanArtPart,
                 rank = mViewModel.fanArtDate
             )
+        }
+
+
+        fanArtAdapter.setOnItemClickListener { adapter, view, position ->
+            val bean = adapter.getItem(position) as ImageDataBean
+            val id = bean.dy_id
+            val title = bean.name + "的二创图片"
+            val params: MutableMap<String, Any> = HashMap()
+            params["tab"] = 2
+
+            RouteUtils.openWebview(UrlUtils.formatUrl(ServiceConstants.BILIBILI_ART , id, params),title)
         }
     }
 

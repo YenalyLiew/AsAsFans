@@ -87,4 +87,7 @@ dependencies {
     kapt  "androidx.room:room-compiler:${rootProject.roomVersion}"
     implementation "androidx.room:room-rxjava3:${rootProject.roomRxjava3Version}"
     implementation "androidx.room:room-guava:${rootProject.roomVersion}"
+
+
+    implementation 'cn.carbs.android:ExpandableTextView:1.0.3'
 }

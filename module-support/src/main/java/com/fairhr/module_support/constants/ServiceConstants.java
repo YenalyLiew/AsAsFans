@@ -30,6 +30,8 @@ public class ServiceConstants {
 
     public final static String BILIBILI_SEARCH = "https://search.bilibili.com/";
 
+    public final static String BILIBILI_ART = "https://t.bilibili.com/";
+
     public final static String BILIBILI_ALL = "/all";
 
 

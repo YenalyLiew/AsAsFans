@@ -49,12 +49,19 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <TextView
+
+            <cn.carbs.android.expandabletextview.library.ExpandableTextView
                 android:id="@+id/video_introduction"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text=""
                 android:textSize="14sp"
-                tools:text="酥酥又们，快和我一起来完成这首歌吧！\n表演：又一 酥酥又\n原曲：《心引力》--王俊凯/蔡依林" />
+                android:ellipsize="end"
+                android:textColor="#0F1826"
+                app:etv_ToExpandHint="更多"
+                app:etv_ToExpandHintColor="#0089CD"
+                app:etv_ToShrinkHintColor="#0089CD" />
+
 
             <View
                 android:layout_width="match_parent"

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.asoul.asasfans.adapter.VideoFragmentAdapter
 import com.asoul.asasfans.viewmodel.VideoViewModel
 import com.asoul.asasfans.R
+import com.asoul.asasfans.activity.SearchActivity
 import com.asoul.asasfans.activity.SettingsActivity
 import com.asoul.asasfans.databinding.VideoDataBinding
 import com.fairhr.module_support.base.MvvmFragment
@@ -38,7 +39,9 @@ class VideoFragment : MvvmFragment<VideoDataBinding, VideoViewModel>() {
             setSupportActionBar(video_toolbar)
         }
         initAdapter()
+
     }
+
 
     private fun initAdapter() {
 
@@ -57,6 +60,7 @@ class VideoFragment : MvvmFragment<VideoDataBinding, VideoViewModel>() {
         }.attach()
     }
 
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.menu_main, menu)
@@ -68,7 +72,15 @@ class VideoFragment : MvvmFragment<VideoDataBinding, VideoViewModel>() {
                 val intent = Intent(activity, SettingsActivity::class.java)
                 startActivity(intent)
             }
+//
+//            R.id.search -> {
+//                val intent = Intent(activity, SearchActivity::class.java)
+//                startActivity(intent)
+//            }
+
         }
         return true
     }
+
+
 }

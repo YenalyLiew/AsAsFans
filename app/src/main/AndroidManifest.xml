@@ -58,8 +58,14 @@
             android:name=".activity.AboutActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        </activity>
+
+        <activity
+            android:name=".activity.SearchActivity"
+            android:screenOrientation="portrait">
 
         </activity>
+
 
     </application>
 

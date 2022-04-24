@@ -1,6 +1,8 @@
 package com.asoul.asasfans.activity
 
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.Observer
@@ -88,7 +90,11 @@ class MainActivity : MvvmActivity<MainDataBinding, MainViewModel>() {
         MaterialAlertDialogBuilder(this@MainActivity)
             .setTitle("新版本提醒")
             .setMessage(bean.body)
-            .setPositiveButton("去下载", null)
+            .setPositiveButton("去下载") { _, _ ->
+                val uri = Uri.parse("https://app.asf.ink/")
+                val intent = Intent(Intent.ACTION_VIEW, uri)
+                startActivity(intent)
+            }
             .setNegativeButton("忽略", null)
             .show()
     }

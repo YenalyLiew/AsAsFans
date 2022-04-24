@@ -26,7 +26,6 @@ public abstract class MvvmActivity<DB extends ViewDataBinding, VM extends BaseVi
     protected VM mViewModel;
     public AppViewModel mAppViewModel;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         setTheme();

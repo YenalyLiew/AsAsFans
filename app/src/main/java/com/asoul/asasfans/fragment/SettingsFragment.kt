@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -55,6 +56,12 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         viewModel.getVersion()
         checkUpdate()
+
+        blackList?.setOnPreferenceClickListener {
+            Navigation.findNavController(requireView())
+                .navigate(R.id.action_settingsFragment_to_blackListFragment)
+            true
+        }
 
         clearPhotoCache?.setOnPreferenceClickListener {
             lifecycleScope.launch {
@@ -126,16 +133,14 @@ class SettingsFragment : PreferenceFragmentCompat() {
                     val updateText = "当前版本：$localVersion (检测到新版本：$latestVersion)"
                     checkUpdate?.summary = updateText
                     checkUpdate?.setOnPreferenceClickListener {
-                        // TODO
+                        val uri = Uri.parse("https://app.asf.ink/")
+                        val intent = Intent(Intent.ACTION_VIEW, uri)
+                        startActivity(intent)
                         true
                     }
                 } else {
                     val updateText = "当前已经是最新版本：$localVersion"
                     checkUpdate?.summary = updateText
-                    checkUpdate?.setOnPreferenceClickListener {
-                        // TODO
-                        true
-                    }
                 }
             } else {
                 result.exceptionOrNull()?.printStackTrace()

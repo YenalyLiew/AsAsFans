@@ -1,11 +1,13 @@
 package com.asoul.asasfans.adapter
 
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.asoul.asasfans.R
 import com.asoul.asasfans.bean.VideoBean
+import com.asoul.asasfans.fragment.VideoShowBottomDialog
 import com.asoul.asasfans_concept.utils.toDurationCase
 import com.asoul.asasfans_concept.utils.toViewsCase
 import com.bumptech.glide.Glide
@@ -106,6 +108,18 @@ class VideoListAdapter(private val fragment: Fragment) :
                 )
             }
         }
+    }
 
+    override fun bindViewClickListener(viewHolder: BaseViewHolder, viewType: Int) {
+        super.bindViewClickListener(viewHolder, viewType)
+        val more = viewHolder.getView<View>(R.id.video_more_button)
+        more.setOnClickListener {
+            val position = viewHolder.bindingAdapterPosition
+            val item = getItem(position)
+            VideoShowBottomDialog.getInstance(item.desc, item.tag, item.pubdate).show(
+                fragment.requireActivity().supportFragmentManager,
+                "VideoShowBottomDialog"
+            )
+        }
     }
 }

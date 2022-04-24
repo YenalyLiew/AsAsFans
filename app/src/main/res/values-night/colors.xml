@@ -2,4 +2,5 @@
 <resources>
     <color name="text_color">#FFFFFFFF</color>
     <color name="text_color_reverse">#FF000000</color>
+    <color name="half_tp_grey">#FFA9A9A9</color>
 </resources>

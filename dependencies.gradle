@@ -1,6 +1,6 @@
 ext {
     //App
-    applicationId = "com.fairhr.ers"
+    applicationId = "com.asoul.asasfans"
     //versionCode
     versionCode = 1 //generateVersionCode()
     //versionName

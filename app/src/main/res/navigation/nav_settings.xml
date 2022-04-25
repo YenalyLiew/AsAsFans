@@ -10,7 +10,11 @@
         android:label="@string/settings">
         <action
             android:id="@+id/action_settingsFragment_to_blackListFragment"
-            app:destination="@id/blackListFragment" />
+            app:destination="@id/blackListFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/blackListFragment"

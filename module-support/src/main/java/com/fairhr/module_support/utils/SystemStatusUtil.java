@@ -12,11 +12,15 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowInsets;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 import com.fairhr.module_support.R;
 
@@ -599,6 +603,30 @@ public class SystemStatusUtil {
             return (boolean) get.invoke(HwNotchSizeUtil);
         } catch (Exception e) {
             return false;
+        }
+    }
+
+    /**
+     * 是否显示软键盘
+     *
+     * @param window window
+     * @param ime    是否显示软键盘
+     */
+    public static void showIme(@NonNull Window window, boolean ime) {
+        WindowInsetsControllerCompat controller = ViewCompat.getWindowInsetsController(window.getDecorView());
+        if (controller != null) {
+            if (ime) {
+                controller.show(WindowInsetsCompat.Type.ime());
+            } else {
+                controller.hide(WindowInsetsCompat.Type.ime());
+            }
+        } else {
+            InputMethodManager imm = (InputMethodManager) window.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (ime) {
+                imm.showSoftInput(window.getDecorView(), InputMethodManager.SHOW_FORCED);
+            } else {
+                imm.hideSoftInputFromWindow(window.getDecorView().getWindowToken(), 0);
+            }
         }
     }
 }

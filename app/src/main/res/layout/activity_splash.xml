@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data class="SplashDataBinding">
 
@@ -12,6 +13,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
+
+        <TextView
+            android:id="@+id/skip_tick"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@color/half_tp_grey"
+            android:padding="2dp"
+            android:text="@string/skip_with_sec"
+            android:gravity="center"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toTopOf="@id/iv_background"
+            app:layout_constraintRight_toRightOf="@id/iv_background"
+            tools:text="4 跳过" />
 
         <ImageView
             android:id="@+id/iv_background"
@@ -34,7 +49,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/iv_background"
             app:layout_constraintRight_toRightOf="@+id/iv_background"
-            android:textSize="14sp"/>
+            android:textSize="14sp"
+            tools:text="dwdw"/>
 
 
         <TextView

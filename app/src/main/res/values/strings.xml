@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">AsAsFans</string>
     <string name="a_soul">A-SOUL</string>
     <string name="video">视频</string>
@@ -68,4 +68,7 @@
     <string name="video_introduction">视频简介</string>
     <string name="not_interested">不感兴趣</string>
     <string name="tag">TAG</string>
+    <string name="click_here_to_search">搜索点这里捏~</string>
+    <string name="collapse">收起</string>
+    <string name="skip_with_sec">%d 跳过</string>
 </resources>

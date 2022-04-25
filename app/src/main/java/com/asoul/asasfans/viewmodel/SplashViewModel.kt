@@ -16,17 +16,11 @@ import java.lang.Math.random
 
 class SplashViewModel (application: Application) : BaseViewModel(application) {
 
-    var fanArtOrder: String = ""
-    var fanArtDate = 0
-    var fanArtPart = 0
-
-    val tempData = mutableListOf<ImageDataBean>()
-
     private val _mFanArtList = MutableLiveData<Result<List<ImageDataBean>?>>()
 
     val mFanArtList: LiveData<Result<List<ImageDataBean>?>> = _mFanArtList
 
-    fun getbackground() {
+    fun getBackground() {
 
 
         val page = (0..10).random()

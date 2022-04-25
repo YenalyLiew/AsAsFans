@@ -3,7 +3,8 @@ package com.asoul.asasfans.activity
 
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.TextView
+import androidx.core.view.isGone
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.asoul.asasfans.HistoryDataRepository
@@ -18,14 +19,13 @@ import com.fairhr.module_support.base.MvvmActivity
 import com.fairhr.module_support.constants.ServiceConstants
 import com.fairhr.module_support.router.RouteUtils
 import com.fairhr.module_support.utils.SPreferenceUtils
+import com.fairhr.module_support.utils.SystemStatusUtil
 import com.fairhr.module_support.utils.UrlUtils
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
 import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.android.synthetic.main.item_search.*
-import java.util.*
-import kotlin.collections.ArrayList
 
 class SearchActivity: MvvmActivity<SearchDataBinding, SearchViewModel>() {
 
@@ -53,7 +53,7 @@ class SearchActivity: MvvmActivity<SearchDataBinding, SearchViewModel>() {
         super.initView()
 
 
-        common_title_tv_title.text = "搜索"
+        common_title_tv_title.text = getString(R.string.search)
         initData()
         initAdapter()
         initEvent()
@@ -113,44 +113,31 @@ class SearchActivity: MvvmActivity<SearchDataBinding, SearchViewModel>() {
             finish()
         }
 
-        cl_search.setOnClickListener {
-            tv_search.visibility = View.GONE
-            et_search.visibility = View.VISIBLE
-            tv_canel.visibility = View.VISIBLE
-        }
-
         tv_canel.setOnClickListener {
-            tv_search.visibility = View.VISIBLE
-            et_search.visibility = View.GONE
             tv_canel.visibility = View.GONE
+            SystemStatusUtil.showIme(window, false)
             et_search.setText("")
+            et_search.clearFocus()
         }
 
+        et_search.addTextChangedListener {
+            tv_canel.isGone = it.toString().isEmpty()
+        }
 
 
         et_search.setOnEditorActionListener { textView, actionId, keyEvent ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
 
-                if (et_search.text.toString().trim().isNotEmpty()) {
+                if (et_search.text.toString().isNotBlank()) {
 
                     val text = HistorySearchEntity()
                     text.hotWordName = et_search.text.toString()
                     HistoryDataRepository.getInstance().insertHistoryEntity(text)
 
-                    val params: MutableMap<String, Any> = HashMap()
-
-                    params["keyword"] = et_search.text.toString().trim()
-
-                    val url = UrlUtils.formatUrl(
-                        ServiceConstants.BILIBILI_SEARCH,
-                        ServiceConstants.BILIBILI_ALL,
-                        params
-                    )
-                    RouteUtils.openWebview(url, "搜索结果")
-                    finish()
+                    search(et_search.text.toString())
                 }
             }
-            false
+            true
         }
 
 
@@ -200,7 +187,7 @@ class SearchActivity: MvvmActivity<SearchDataBinding, SearchViewModel>() {
                     val data: List<*> = adapter.data
                     val bean = data[position] as LoadMoreBean
                     val name = bean.data
-                    et_search.setText(name)
+                    search(name)
                 }
             }
 
@@ -208,4 +195,18 @@ class SearchActivity: MvvmActivity<SearchDataBinding, SearchViewModel>() {
         }
     }
 
+    private fun search(keyword: String) {
+        val params: MutableMap<String, Any> = HashMap()
+
+        params["keyword"] = keyword.trim()
+
+        val url = UrlUtils.formatUrl(
+            ServiceConstants.BILIBILI_SEARCH,
+            ServiceConstants.BILIBILI_ALL,
+            params
+        )
+        RouteUtils.openWebview(url, "搜索结果")
+        SystemStatusUtil.showIme(window, false)
+        finish()
+    }
 }

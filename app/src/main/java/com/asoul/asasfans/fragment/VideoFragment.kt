@@ -39,7 +39,10 @@ class VideoFragment : MvvmFragment<VideoDataBinding, VideoViewModel>() {
             setSupportActionBar(video_toolbar)
         }
         initAdapter()
-
+        mDataBinding.searchView.setOnClickListener {
+            val intent = Intent(activity, SearchActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 
@@ -72,12 +75,6 @@ class VideoFragment : MvvmFragment<VideoDataBinding, VideoViewModel>() {
                 val intent = Intent(activity, SettingsActivity::class.java)
                 startActivity(intent)
             }
-//
-//            R.id.search -> {
-//                val intent = Intent(activity, SearchActivity::class.java)
-//                startActivity(intent)
-//            }
-
         }
         return true
     }

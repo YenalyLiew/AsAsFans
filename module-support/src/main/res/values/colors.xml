@@ -124,7 +124,9 @@
 
     <color name="color_FF5F3E">#FF5F3E</color>
 
+    <color name="text_color">#FF000000</color>
 
+    <color name="text_color_reverse">#FFFFFFFF</color>
 
 
 

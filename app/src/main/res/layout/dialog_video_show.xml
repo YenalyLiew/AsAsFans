@@ -54,13 +54,14 @@
                 android:id="@+id/video_introduction"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=""
                 android:textSize="14sp"
                 android:ellipsize="end"
-                android:textColor="#0F1826"
-                app:etv_ToExpandHint="更多"
+                android:textColor="@color/text_color"
+                app:etv_ToExpandHint="@string/more"
+                app:etv_ToShrinkHint="@string/collapse"
                 app:etv_ToExpandHintColor="#0089CD"
-                app:etv_ToShrinkHintColor="#0089CD" />
+                app:etv_ToShrinkHintColor="#0089CD"
+                tools:text="tcg"/>
 
 
             <View

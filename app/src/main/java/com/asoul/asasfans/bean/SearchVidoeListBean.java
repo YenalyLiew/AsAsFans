@@ -7,15 +7,14 @@ public class SearchVidoeListBean {
     private CosttimeBean cost_time;
     private int  egg_hit;
     private int  numPages;
-
     private int  numResults;
     private int  page;
     private int  pagesize;
     private List<SearchVideoBean> result;
     private  String rqt_type;
     private  String seid;
-    private  String suggest_keyword;
     private int  show_column;
+    private  String suggest_keyword;
 
     public CosttimeBean getCost_time() {
         return cost_time;

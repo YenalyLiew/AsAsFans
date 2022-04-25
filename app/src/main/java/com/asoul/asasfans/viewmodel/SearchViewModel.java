@@ -15,6 +15,7 @@ import com.fairhr.module_support.network.ErsNetManager;
 import com.fairhr.module_support.tools.inter.ErsDataObserver;
 
 import com.fairhr.module_support.utils.GsonUtils;
+import com.fairhr.module_support.utils.LogUtil;
 import com.fairhr.module_support.utils.UrlUtils;
 import com.google.gson.reflect.TypeToken;
 
@@ -104,7 +105,7 @@ public class SearchViewModel extends BaseViewModel {
 
 
 
-        ErsNetManager.getInstance().getRequest(UrlUtils.formatUrl(ServiceConstants.BASE_NET, ServiceConstants.NET_TITLE, params),
+        ErsNetManager.getInstance().getRequest(UrlUtils.formatUrl(ServiceConstants.BILIBILI_SEARCH, ServiceConstants.BILIBILI_SEARCH_TYPE, params),
                 new ErsDataObserver() {
                     @Override
                     public void onSuccess(String result) {
@@ -118,7 +119,7 @@ public class SearchViewModel extends BaseViewModel {
 
                     @Override
                     public void onServiceError(int errorCode, String errorMsg) {
-
+                        LogUtil.d("commitanswer","addReviewRecord=:"+errorMsg);
                     }
 
                     @Override

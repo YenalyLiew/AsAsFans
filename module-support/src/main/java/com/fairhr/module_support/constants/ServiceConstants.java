@@ -28,7 +28,9 @@ public class ServiceConstants {
 
     public final static String BILIBILI_TITLE = "https://www.bilibili.com/video/";
 
-    public final static String BILIBILI_SEARCH = "https://search.bilibili.com/";
+    public final static String BILIBILI_SEARCH = "https://api.bilibili.com/";
+
+    public final static String BILIBILI_SEARCH_TYPE = "/x/web-interface/search/type";
 
     public final static String BILIBILI_ART = "https://t.bilibili.com/";
 

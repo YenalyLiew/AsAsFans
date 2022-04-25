@@ -71,4 +71,8 @@
     <string name="click_here_to_search">搜索点这里捏~</string>
     <string name="collapse">收起</string>
     <string name="skip_with_sec">%d 跳过</string>
+
+    <string name="result_video">视频</string>
+    <string name="result_user">用户</string>
+    <string name="result_tag">标签</string>
 </resources>

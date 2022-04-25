@@ -39,7 +39,7 @@ public class VideoShowViewModel extends BaseViewModel {
     }
 
 
-    public void getVideoList(int type, int pageIndex) {
+    public void getVideoList(int type, int pageSize) {
 
         Map<String, Object> params = new HashMap<>();
 
@@ -65,7 +65,7 @@ public class VideoShowViewModel extends BaseViewModel {
         }
 
         params.put("tname", "");
-        params.put("page", pageIndex);
+        params.put("page", pageSize);
 
 
         ErsNetManager.getInstance().getRequest(UrlUtils.formatUrl(ServiceConstants.BASE_NET, ServiceConstants.NET_TITLE, params),

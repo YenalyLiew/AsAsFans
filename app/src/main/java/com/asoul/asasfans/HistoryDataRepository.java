@@ -35,6 +35,7 @@ public class HistoryDataRepository {
         return sInstance;
     }
 
+
     //获取所有的历史搜索记录
     public LiveData<List<HistorySearchEntity>> getAllHistoryLiveData() {
         return historySearchDao.loadAllHistoryEntities();

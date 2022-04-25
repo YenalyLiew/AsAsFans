@@ -3,24 +3,24 @@ package com.asoul.asasfans.activity
 
 import android.content.Intent
 import android.net.Uri
-import android.os.Bundle
-import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.asoul.asasfans.R
 import com.asoul.asasfans.bean.GithubVersionBean
+import com.asoul.asasfans.databinding.MainDataBinding
+import com.asoul.asasfans.fragment.RecordFragment
 import com.asoul.asasfans.utils.localVersionCode
 import com.asoul.asasfans.utils.toVersionCode
 import com.asoul.asasfans.viewmodel.MainViewModel
-import com.asoul.asasfans.R
-import com.asoul.asasfans.databinding.MainDataBinding
 import com.fairhr.module_support.KtxActivityManger
 import com.fairhr.module_support.base.MvvmActivity
 import com.fairhr.module_support.utils.SPreferenceUtils
-import com.fairhr.module_support.utils.SystemStatusUtil
 import com.fairhr.module_support.utils.ToastUtils
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : MvvmActivity<MainDataBinding, MainViewModel>() {
@@ -71,6 +71,7 @@ class MainActivity : MvvmActivity<MainDataBinding, MainViewModel>() {
         navController = navHostFragment!!.navController
         bn_nav.setupWithNavController(navController!!)
     }
+
 
 
     override fun registerLiveDataObserve() {

@@ -7,20 +7,24 @@ import androidx.core.view.isGone
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.asoul.asasfans.HistoryDataRepository
 import com.asoul.asasfans.R
 import com.asoul.asasfans.adapter.HotSearchAdapter
 import com.asoul.asasfans.adapter.SearchHistoryAdapter
+import com.asoul.asasfans.adapter.SearchVidoeListAdapter
 import com.asoul.asasfans.bean.LoadMoreBean
+import com.asoul.asasfans.bean.SearchVideoBean
+import com.asoul.asasfans.bean.VideoBean
 import com.asoul.asasfans.databinding.SearchDataBinding
 import com.asoul.asasfans.entity.HistorySearchEntity
 import com.asoul.asasfans.viewmodel.SearchViewModel
 import com.fairhr.module_support.base.MvvmActivity
 import com.fairhr.module_support.constants.ServiceConstants
 import com.fairhr.module_support.router.RouteUtils
+import com.fairhr.module_support.utils.ContextUtil
 import com.fairhr.module_support.utils.SPreferenceUtils
 import com.fairhr.module_support.utils.SystemStatusUtil
-import com.fairhr.module_support.utils.UrlUtils
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
@@ -29,8 +33,15 @@ import kotlinx.android.synthetic.main.item_search.*
 
 class SearchActivity: MvvmActivity<SearchDataBinding, SearchViewModel>() {
 
+
+
     var HotSearchAdapter: HotSearchAdapter? = null
     var SearchHistoryAdapter: SearchHistoryAdapter? = null
+    var SearchVidoeListAdapter: SearchVidoeListAdapter?=null
+    val tempData= mutableListOf<SearchVideoBean>()
+    var PAGE_SIZE = 1
+    var content = ""
+
 
 
     override fun initContentView(): Int {
@@ -61,7 +72,8 @@ class SearchActivity: MvvmActivity<SearchDataBinding, SearchViewModel>() {
 
 
     private fun initData() {
-        mViewModel.gethotSearch()
+
+        mViewModel.getVideoList()
     }
 
     private fun initAdapter() {
@@ -76,7 +88,14 @@ class SearchActivity: MvvmActivity<SearchDataBinding, SearchViewModel>() {
         SearchHistoryAdapter = SearchHistoryAdapter()
         rv_searchhistory.adapter = SearchHistoryAdapter
 
+
+        rv_result.layoutManager = LinearLayoutManager(ContextUtil.getContext(), LinearLayoutManager.VERTICAL, false)
+        SearchVidoeListAdapter = SearchVidoeListAdapter()
+        rv_result.adapter = SearchVidoeListAdapter
+
+
     }
+
 
 
 
@@ -103,11 +122,54 @@ class SearchActivity: MvvmActivity<SearchDataBinding, SearchViewModel>() {
             SearchHistoryAdapter?.setNewInstance(tempData)
 
         }
+
+
+
+        mViewModel.videoListData.observe(this) { videoListBean ->
+            if (videoListBean.result.isNotEmpty()) {
+
+                val bean = mutableListOf<VideoBean>()
+                for (i in 0..9){
+                    bean.add(i,videoListBean.result[i])
+                }
+                HotSearchAdapter!!.setList(bean)
+            }
+        }
+
+        mViewModel.searchVideoListData.observe(this) { SearchVidoeListBean ->
+            if (SearchVidoeListBean.result.isNotEmpty()){
+                tempData.addAll(SearchVidoeListBean.result)
+                sl_result.finishLoadMore(true)
+                if (tempData.size ==0){
+                    sl_result.visibility = View.GONE
+                    ll_empty.visibility = View.VISIBLE
+                }else{
+                    sl_result.visibility = View.VISIBLE
+                    ll_empty.visibility = View.GONE
+                }
+                if (tempData.size <=0){
+                    sl_result.setNoMoreData(true)
+                }
+                SearchVidoeListAdapter!!.setList(tempData)
+
+            }
+        }
+
     }
 
 
 
     private fun initEvent() {
+
+
+
+        sl_result.setEnableRefresh(false)
+
+        sl_result.setOnLoadMoreListener {
+            PAGE_SIZE += 1
+            mViewModel.getSearchResult(PAGE_SIZE,content)
+        }
+
 
         common_title_tiv_left.setOnClickListener {
             finish()
@@ -118,6 +180,10 @@ class SearchActivity: MvvmActivity<SearchDataBinding, SearchViewModel>() {
             SystemStatusUtil.showIme(window, false)
             et_search.setText("")
             et_search.clearFocus()
+
+            ll_empty.visibility = View.GONE
+            ll_search_result.visibility = View.GONE
+            cl_allsearch.visibility = View.VISIBLE
         }
 
         et_search.addTextChangedListener {
@@ -130,10 +196,12 @@ class SearchActivity: MvvmActivity<SearchDataBinding, SearchViewModel>() {
 
                 if (et_search.text.toString().isNotBlank()) {
 
+                    ll_search_result.visibility = View.VISIBLE
+                    cl_allsearch.visibility = View.GONE
+
                     val text = HistorySearchEntity()
                     text.hotWordName = et_search.text.toString()
                     HistoryDataRepository.getInstance().insertHistoryEntity(text)
-
                     search(et_search.text.toString())
                 }
             }
@@ -145,6 +213,23 @@ class SearchActivity: MvvmActivity<SearchDataBinding, SearchViewModel>() {
             HistoryDataRepository.getInstance().deleteAllHistoryEntity()
             SearchHistoryAdapter!!.removeAllFooterView()
         }
+
+
+        HotSearchAdapter!!.setOnItemClickListener { adapter, view, position ->
+            val bean = adapter.getItem(position) as VideoBean
+            val bvid = bean.bvid
+            val title = bean.title
+            RouteUtils.openWebview(ServiceConstants.BILIBILI_TITLE + bvid,title)
+        }
+
+
+        SearchVidoeListAdapter!!.setOnItemClickListener { adapter, view, position ->
+            val bean = adapter.getItem(position) as SearchVideoBean
+            val bvid = bean.bvid
+            val title = bean.title
+            RouteUtils.openWebview(ServiceConstants.BILIBILI_TITLE + bvid,title)
+        }
+
 
 
         SearchHistoryAdapter!!.setOnItemClickListener { adapter, view, position ->
@@ -196,17 +281,11 @@ class SearchActivity: MvvmActivity<SearchDataBinding, SearchViewModel>() {
     }
 
     private fun search(keyword: String) {
-        val params: MutableMap<String, Any> = HashMap()
 
-        params["keyword"] = keyword.trim()
+        content = keyword
+        mViewModel.getSearchResult(PAGE_SIZE,keyword)
+        ll_search_result.visibility = View.VISIBLE
+        cl_allsearch.visibility = View.GONE
 
-        val url = UrlUtils.formatUrl(
-            ServiceConstants.BILIBILI_SEARCH,
-            ServiceConstants.BILIBILI_ALL,
-            params
-        )
-        RouteUtils.openWebview(url, "搜索结果")
-        SystemStatusUtil.showIme(window, false)
-        finish()
     }
 }

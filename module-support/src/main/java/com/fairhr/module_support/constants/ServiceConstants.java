@@ -34,5 +34,8 @@ public class ServiceConstants {
 
     public final static String BILIBILI_ALL = "/all";
 
+    public final static String ASOUL_MUSIC = "https://studio.asf.ink";
+
+
 
 }

@@ -63,12 +63,56 @@
             android:layout_width="wrap_content" />
 
 
+        <LinearLayout
+            android:id="@+id/ll_search_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.fairhr.module_support.widget.refresh.SmartRefreshLayout
+                android:id="@+id/sl_result"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:overScrollMode="never"
+                    android:padding="8dp" />
+            </com.fairhr.module_support.widget.refresh.SmartRefreshLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="这里还什么都没有捏~"
+                android:textSize="30sp"
+                android:textColor="@color/text_color"/>
+
+        </LinearLayout>
+
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_allsearch"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/dp_10"
-            android:background="@color/white">
+            android:background="@color/white"
+            android:visibility="visible">
 
             <View
                 android:id="@+id/view_purple3"

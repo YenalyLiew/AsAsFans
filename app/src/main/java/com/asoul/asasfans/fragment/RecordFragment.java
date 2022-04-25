@@ -87,8 +87,8 @@ public class RecordFragment extends BaseSelectPictureFragment{
         initWebView();
         initStatusBarHeight();
         mBaseWebRlTitle.setVisibility(View.GONE);
-        LogUtil.d(mLoadUrl);
-        loadUrl(mLoadUrl);
+        LogUtil.d(ServiceConstants.ASOUL_MUSIC);
+        loadUrl(ServiceConstants.ASOUL_MUSIC);
     }
 
     @Override

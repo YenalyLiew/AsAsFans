@@ -17,6 +17,7 @@ import android.webkit.WebViewClient;
 
 
 import com.fairhr.module_support.ThreadUtils;
+import com.fairhr.module_support.utils.ContextUtil;
 import com.fairhr.module_support.utils.DeviceInfo;
 import com.fairhr.module_support.utils.LogUtil;
 
@@ -74,6 +75,7 @@ public class KSWebViewClient extends WebViewClient {
             String url = request.getUrl().toString();
             if (!url.startsWith("https:") && !url.startsWith("http:") ){
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
                 result = true;
             }else {

@@ -54,14 +54,14 @@
                 android:id="@+id/video_introduction"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
                 android:ellipsize="end"
                 android:textColor="@color/text_color"
+                android:textSize="14sp"
                 app:etv_ToExpandHint="@string/more"
-                app:etv_ToShrinkHint="@string/collapse"
                 app:etv_ToExpandHintColor="#0089CD"
+                app:etv_ToShrinkHint="@string/collapse"
                 app:etv_ToShrinkHintColor="#0089CD"
-                tools:text="tcg"/>
+                tools:text="tcg" />
 
 
             <View
@@ -94,18 +94,21 @@
                 android:id="@+id/no_this_tag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:text="@string/fuck_off_this_tag" />
 
             <Button
                 android:id="@+id/no_this_video"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:text="@string/fuck_off_this_video" />
 
             <Button
                 android:id="@+id/no_this_up"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:text="@string/fuck_off_this_up" />
         </LinearLayout>
 

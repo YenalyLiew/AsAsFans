@@ -138,6 +138,7 @@ class SearchActivity: MvvmActivity<SearchDataBinding, SearchViewModel>() {
 
         mViewModel.searchVideoListData.observe(this) { SearchVidoeListBean ->
             if (SearchVidoeListBean.result.isNotEmpty()){
+
                 tempData.addAll(SearchVidoeListBean.result)
                 sl_result.finishLoadMore(true)
                 if (tempData.size ==0){
@@ -283,6 +284,7 @@ class SearchActivity: MvvmActivity<SearchDataBinding, SearchViewModel>() {
     private fun search(keyword: String) {
 
         content = keyword
+        tempData.clear()
         mViewModel.getSearchResult(PAGE_SIZE,keyword)
         ll_search_result.visibility = View.VISIBLE
         cl_allsearch.visibility = View.GONE

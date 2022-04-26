@@ -91,7 +91,7 @@ public class SearchViewModel extends BaseViewModel {
         params.put("context", "");
         params.put("search_type","video");
         params.put("page",pageSize );
-        params.put("order","pubdate" );
+        params.put("order","click" );
         params.put("keyword",content );
         params.put("duration",0 );
         params.put("category_id","" );
@@ -119,11 +119,12 @@ public class SearchViewModel extends BaseViewModel {
 
                     @Override
                     public void onServiceError(int errorCode, String errorMsg) {
-                        LogUtil.d("commitanswer","addReviewRecord=:"+errorMsg);
+                        LogUtil.d("JSONObject","errorMsg111=:"+errorMsg);
                     }
 
                     @Override
                     public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                        LogUtil.d("JSONObject","errorMsg111=:"+e.toString());
 
                     }
                 });

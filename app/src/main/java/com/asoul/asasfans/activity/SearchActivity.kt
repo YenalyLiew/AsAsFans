@@ -185,6 +185,7 @@ class SearchActivity: MvvmActivity<SearchDataBinding, SearchViewModel>() {
             ll_empty.visibility = View.GONE
             ll_search_result.visibility = View.GONE
             cl_allsearch.visibility = View.VISIBLE
+
         }
 
         et_search.addTextChangedListener {

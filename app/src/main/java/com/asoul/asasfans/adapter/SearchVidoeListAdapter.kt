@@ -30,13 +30,17 @@ class SearchVidoeListAdapter : BaseQuickAdapter<SearchVideoBean, BaseViewHolder>
 
 
         time.text = item.duration
-        title.text = item.title
+
+        var tl = item.title.replace("<em class=\"keyword\">","")
+        tl = tl.replace("</em>","")
+
+        title.text = tl
         up.text = item.author
         views.text = item.play.toViewsCase()
         partition.text = item.typename
         comments.text = item.like.toViewsCase()
 
-        GlideUtils.loadToImageView(ContextUtil.getContext(), item.pic, pic)
+        GlideUtils.loadToImageView(ContextUtil.getContext(),"http:"+ item.pic, pic)
 
     }
 

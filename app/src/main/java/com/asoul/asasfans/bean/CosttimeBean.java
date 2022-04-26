@@ -4,6 +4,14 @@ public class CosttimeBean {
 
     private String as_request;
     private String as_request_format;
+    private String as_response_format;
+    private String deserialize_response;
+    private String illegal_handler;
+    private String main_handler;
+    private String params_check;
+    private String save_cache;
+    private String total;
+
 
     public String getAs_request() {
         return as_request;
@@ -77,11 +85,4 @@ public class CosttimeBean {
         this.total = total;
     }
 
-    private String as_response_format;
-    private String deserialize_response;
-    private String illegal_handler;
-    private String main_handler;
-    private String params_check;
-    private String save_cache;
-    private String total;
 }

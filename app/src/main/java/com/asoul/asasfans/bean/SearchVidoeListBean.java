@@ -1,10 +1,13 @@
 package com.asoul.asasfans.bean;
 
+import java.lang.reflect.Array;
 import java.util.List;
 
 public class SearchVidoeListBean {
 
-    private CosttimeBean cost_time;
+    private Object cost_time;
+    private Object exp_list;
+    private Object pageinfo;
     private int  egg_hit;
     private int  numPages;
     private int  numResults;
@@ -13,15 +16,34 @@ public class SearchVidoeListBean {
     private List<SearchVideoBean> result;
     private  String rqt_type;
     private  String seid;
-    private int  show_column;
+    private  int  show_column;
     private  String suggest_keyword;
 
-    public CosttimeBean getCost_time() {
+
+
+
+    public Object getCost_time() {
         return cost_time;
     }
 
-    public void setCost_time(CosttimeBean cost_time) {
+    public void setCost_time(Object cost_time) {
         this.cost_time = cost_time;
+    }
+
+    public Object getExp_list() {
+        return exp_list;
+    }
+
+    public void setExp_list(Object exp_list) {
+        this.exp_list = exp_list;
+    }
+
+    public Object getPageinfo() {
+        return pageinfo;
+    }
+
+    public void setPageinfo(Object pageinfo) {
+        this.pageinfo = pageinfo;
     }
 
     public int getEgg_hit() {
@@ -88,20 +110,20 @@ public class SearchVidoeListBean {
         this.seid = seid;
     }
 
-    public String getSuggest_keyword() {
-        return suggest_keyword;
-    }
-
-    public void setSuggest_keyword(String suggest_keyword) {
-        this.suggest_keyword = suggest_keyword;
-    }
-
     public int getShow_column() {
         return show_column;
     }
 
     public void setShow_column(int show_column) {
         this.show_column = show_column;
+    }
+
+    public String getSuggest_keyword() {
+        return suggest_keyword;
+    }
+
+    public void setSuggest_keyword(String suggest_keyword) {
+        this.suggest_keyword = suggest_keyword;
     }
 
 

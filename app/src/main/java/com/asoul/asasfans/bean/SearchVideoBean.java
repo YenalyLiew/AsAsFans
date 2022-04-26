@@ -1,47 +1,13 @@
 package com.asoul.asasfans.bean;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class SearchVideoBean {
 
     private int aid;
     private String arcurl;
     private String author;
-    private boolean badgepay;
-    private String bvid;
-    private String corner;
-    private String cover;
-    private String desc;
-    private String description;
-    private String duration;
-    private int favorites;
-    private char  hit_columns;
-    private int id;
-    private int is_pay;
-    private int is_union_video;
-    private int like;
-    private int mid;
-    private char  new_rec_tags;
-    private String pic;
-    private int play;
-    private int pubdate;
-    private int rank_score;
-    private String rec_reason;
-    private int review;
-    private int senddate;
-
-
-    private String tag;
-    private String title;
-    private String type;
-    private String typeid;
-    private String typename;
-    private String upic;
-    private String url;
-    private  int video_review;
-    private String view_type;
-
-
-
-
 
     public int getAid() {
         return aid;
@@ -131,11 +97,11 @@ public class SearchVideoBean {
         this.favorites = favorites;
     }
 
-    public char getHit_columns() {
+    public Object getHit_columns() {
         return hit_columns;
     }
 
-    public void setHit_columns(char hit_columns) {
+    public void setHit_columns(Object hit_columns) {
         this.hit_columns = hit_columns;
     }
 
@@ -179,11 +145,11 @@ public class SearchVideoBean {
         this.mid = mid;
     }
 
-    public char getNew_rec_tags() {
+    public Object getNew_rec_tags() {
         return new_rec_tags;
     }
 
-    public void setNew_rec_tags(char new_rec_tags) {
+    public void setNew_rec_tags(Object new_rec_tags) {
         this.new_rec_tags = new_rec_tags;
     }
 
@@ -315,8 +281,37 @@ public class SearchVideoBean {
         this.view_type = view_type;
     }
 
-
-
+    private boolean badgepay;
+    private String bvid;
+    private String corner;
+    private String cover;
+    private String desc;
+    private String description;
+    private String duration;
+    private int favorites;
+    private Object hit_columns;
+    private int id;
+    private int is_pay;
+    private int is_union_video;
+    private int like;
+    private int mid;
+    private Object  new_rec_tags;
+    private String pic;
+    private int play;
+    private int pubdate;
+    private int rank_score;
+    private String rec_reason;
+    private int review;
+    private int senddate;
+    private String tag;
+    private String title;
+    private String type;
+    private String typeid;
+    private String typename;
+    private String upic;
+    private String url;
+    private  int video_review;
+    private String view_type;
 
 
 }

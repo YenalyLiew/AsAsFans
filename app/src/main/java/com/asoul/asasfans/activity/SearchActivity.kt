@@ -180,6 +180,7 @@ class SearchActivity: MvvmActivity<SearchDataBinding, SearchViewModel>() {
             tv_canel.visibility = View.GONE
             SystemStatusUtil.showIme(window, false)
             et_search.setText("")
+            tempData.clear()
             et_search.clearFocus()
 
             ll_empty.visibility = View.GONE

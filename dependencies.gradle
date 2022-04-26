@@ -2,9 +2,9 @@ ext {
     //App
     applicationId = "com.asoul.asasfans"
     //versionCode
-    versionCode = 1 //generateVersionCode()
+    versionCode = 2 //generateVersionCode()
     //versionName
-    versionName = "1.0.0"
+    versionName = "2.0.0"
     //Sdk
     compileSdkVersion = 31
     minSdkVersion = 21

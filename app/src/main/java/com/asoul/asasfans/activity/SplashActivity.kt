@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_splash.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
+import java.util.*
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : MvvmActivity<SplashDataBinding, SplashViewModel>() {
@@ -65,7 +66,8 @@ class SplashActivity : MvvmActivity<SplashDataBinding, SplashViewModel>() {
             val imageDataBean = result.getOrNull()
             if (imageDataBean != null) {
 
-                val num = (0 until 20).random()
+                val random = Random()
+                val num = random.nextInt(20)
 
                 val randomImage = imageDataBean[num].pic_url[0]
 

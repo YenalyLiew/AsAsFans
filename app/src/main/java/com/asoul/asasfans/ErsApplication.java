@@ -6,6 +6,7 @@ import com.fairhr.module_support.utils.AppUtils;
 import com.fairhr.module_support.utils.ContextUtil;
 import com.fairhr.module_support.utils.ProcessUtils;
 import com.jeremyliao.liveeventbus.LiveEventBus;
+import com.tencent.bugly.crashreport.CrashReport;
 
 
 public class ErsApplication extends BaseApplication {
@@ -30,7 +31,7 @@ public class ErsApplication extends BaseApplication {
             initARouter(this);
             //LiveEventBus初始化，替代EventBus
             initLiveEventBus();
-
+            CrashReport.initCrashReport(getApplicationContext(), "8ae9666f6f", false);
         }
     }
 

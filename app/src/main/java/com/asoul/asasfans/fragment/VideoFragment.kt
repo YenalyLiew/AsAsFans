@@ -1,16 +1,17 @@
 package com.asoul.asasfans.fragment
 
 import android.content.Intent
+import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.asoul.asasfans.adapter.VideoFragmentAdapter
-import com.asoul.asasfans.viewmodel.VideoViewModel
 import com.asoul.asasfans.R
 import com.asoul.asasfans.activity.SearchActivity
 import com.asoul.asasfans.activity.SettingsActivity
+import com.asoul.asasfans.adapter.VideoFragmentAdapter
 import com.asoul.asasfans.databinding.VideoDataBinding
+import com.asoul.asasfans.viewmodel.VideoViewModel
 import com.fairhr.module_support.base.MvvmFragment
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_video.*
@@ -31,13 +32,15 @@ class VideoFragment : MvvmFragment<VideoDataBinding, VideoViewModel>() {
 
     override fun initDataBindingVariable() {}
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
 
     override fun initView() {
         super.initView()
-        setHasOptionsMenu(true)
-        (requireActivity() as AppCompatActivity).apply {
-            setSupportActionBar(video_toolbar)
-        }
+        (activity as AppCompatActivity).setSupportActionBar(video_toolbar)
         initAdapter()
         mDataBinding.searchView.setOnClickListener {
             val intent = Intent(activity, SearchActivity::class.java)

@@ -4,16 +4,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.asoul.asasfans.R
 import com.asoul.asasfans.bean.SearchVideoBean
-import com.asoul.asasfans_concept.utils.toDurationCase
 import com.asoul.asasfans_concept.utils.toViewsCase
-import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.fairhr.module_support.utils.ContextUtil
 import com.fairhr.module_support.utils.GlideUtils
-import kotlinx.android.synthetic.main.activity_splash.*
 
-class SearchVidoeListAdapter : BaseQuickAdapter<SearchVideoBean, BaseViewHolder>(R.layout.item_video) {
+class SearchVideoListAdapter : BaseQuickAdapter<SearchVideoBean, BaseViewHolder>(R.layout.item_video) {
 
 
 

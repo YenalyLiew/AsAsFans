@@ -90,4 +90,5 @@ dependencies {
 
 
     implementation 'cn.carbs.android:ExpandableTextView:1.0.3'
+    implementation 'com.tencent.bugly:crashreport:latest.release'
 }

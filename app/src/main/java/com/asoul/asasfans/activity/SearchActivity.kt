@@ -12,7 +12,7 @@ import com.asoul.asasfans.HistoryDataRepository
 import com.asoul.asasfans.R
 import com.asoul.asasfans.adapter.HotSearchAdapter
 import com.asoul.asasfans.adapter.SearchHistoryAdapter
-import com.asoul.asasfans.adapter.SearchVidoeListAdapter
+import com.asoul.asasfans.adapter.SearchVideoListAdapter
 import com.asoul.asasfans.bean.LoadMoreBean
 import com.asoul.asasfans.bean.SearchVideoBean
 import com.asoul.asasfans.bean.VideoBean
@@ -37,7 +37,7 @@ class SearchActivity: MvvmActivity<SearchDataBinding, SearchViewModel>() {
 
     var HotSearchAdapter: HotSearchAdapter? = null
     var SearchHistoryAdapter: SearchHistoryAdapter? = null
-    var SearchVidoeListAdapter: SearchVidoeListAdapter?=null
+    var SearchVidoeListAdapter: SearchVideoListAdapter?=null
     val tempData= mutableListOf<SearchVideoBean>()
     var PAGE_SIZE = 1
     var content = ""
@@ -90,7 +90,7 @@ class SearchActivity: MvvmActivity<SearchDataBinding, SearchViewModel>() {
 
 
         rv_result.layoutManager = LinearLayoutManager(ContextUtil.getContext(), LinearLayoutManager.VERTICAL, false)
-        SearchVidoeListAdapter = SearchVidoeListAdapter()
+        SearchVidoeListAdapter = SearchVideoListAdapter()
         rv_result.adapter = SearchVidoeListAdapter
 
 
@@ -137,22 +137,26 @@ class SearchActivity: MvvmActivity<SearchDataBinding, SearchViewModel>() {
         }
 
         mViewModel.searchVideoListData.observe(this) { SearchVidoeListBean ->
-            if (SearchVidoeListBean.result.isNotEmpty()){
+            if (SearchVidoeListBean.result != null) {
+                if (SearchVidoeListBean.result.isNotEmpty()) {
 
-                tempData.addAll(SearchVidoeListBean.result)
-                sl_result.finishLoadMore(true)
-                if (tempData.size ==0){
-                    sl_result.visibility = View.GONE
-                    ll_empty.visibility = View.VISIBLE
-                }else{
-                    sl_result.visibility = View.VISIBLE
-                    ll_empty.visibility = View.GONE
-                }
-                if (tempData.size <=0){
-                    sl_result.setNoMoreData(true)
-                }
-                SearchVidoeListAdapter!!.setList(tempData)
+                    tempData.addAll(SearchVidoeListBean.result)
+                    sl_result.finishLoadMore(true)
+                    if (tempData.size == 0) {
+                        sl_result.visibility = View.GONE
+                        ll_empty.visibility = View.VISIBLE
+                    } else {
+                        sl_result.visibility = View.VISIBLE
+                        ll_empty.visibility = View.GONE
+                    }
+                    if (tempData.size <= 0) {
+                        sl_result.setNoMoreData(true)
+                    }
+                    SearchVidoeListAdapter!!.setList(tempData)
 
+                }
+            } else {
+                sl_result.setNoMoreData(true)
             }
         }
 
@@ -275,6 +279,7 @@ class SearchActivity: MvvmActivity<SearchDataBinding, SearchViewModel>() {
                     val data: List<*> = adapter.data
                     val bean = data[position] as LoadMoreBean
                     val name = bean.data
+                    et_search.setText(name)
                     search(name)
                 }
             }

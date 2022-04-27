@@ -12,7 +12,8 @@ import com.fairhr.module_support.utils.UrlUtils
 import com.google.gson.reflect.TypeToken
 import io.reactivex.rxjava3.core.Observer
 import io.reactivex.rxjava3.disposables.Disposable
-import java.lang.Math.random
+import java.util.*
+import kotlin.collections.HashMap
 
 class SplashViewModel (application: Application) : BaseViewModel(application) {
 
@@ -23,7 +24,7 @@ class SplashViewModel (application: Application) : BaseViewModel(application) {
     fun getBackground() {
 
 
-        val page = (0..10).random()
+        val page = Random().nextInt(11)
         val part = 0
         val rank = 0
         val ctime =""

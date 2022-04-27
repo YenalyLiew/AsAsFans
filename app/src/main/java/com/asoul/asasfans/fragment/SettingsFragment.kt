@@ -112,7 +112,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
             true
         }
         feedback?.setOnPreferenceClickListener {
-            val feedbackUri = Uri.parse("https://git.asf.ink/A-SoulFan/as-as-fans/issues")
+            val feedbackUri = Uri.parse("http://asf.ink/appbug")
             val intent = Intent(Intent.ACTION_VIEW, feedbackUri)
             startActivity(intent)
             true

@@ -5,6 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.asoul.asasfans.R
 import com.asoul.asasfans.utils.localVersion
+import com.bumptech.glide.Glide
 import com.drakeet.about.AbsAboutActivity
 import com.drakeet.about.Card
 import com.drakeet.about.Category
@@ -18,6 +19,9 @@ import com.fairhr.module_support.utils.SPreferenceUtils
  * @Description : Description...
  */
 class AboutActivity : AbsAboutActivity() {
+
+    private var npk48 = 0
+    // private lateinit var mediaPlayer: MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         when (SPreferenceUtils.readInt(this, "theme", R.style.Theme_AsAsFans_Ava)) {
@@ -33,8 +37,26 @@ class AboutActivity : AbsAboutActivity() {
     override fun onCreateHeader(icon: ImageView, slogan: TextView, version: TextView) {
         icon.setImageResource(R.drawable.icon_asasf_colorful_logo)
         slogan.setText(R.string.app_name)
-        val versionText = "v$localVersion"
+        val versionText = "version: $localVersion"
         version.text = versionText
+
+        icon.setOnClickListener {
+            npk48++
+            if (npk48 == 10) {
+                Glide.with(this).load(R.drawable.diana_scratch).into(icon)
+                val whatHappenedText = "怎么会是呢？"
+                slogan.text = whatHappenedText
+            }
+            if (npk48 == 20) {
+                Glide.with(this).load(R.drawable.san_pi_he_yi).into(icon)
+                val niuText = "??????"
+                val attentionText = "???"
+                slogan.text = niuText
+                version.text = attentionText
+                // mediaPlayer = MediaPlayer.create(this, R.raw.yong_gan_niu_niu)
+                // mediaPlayer.start()
+            }
+        }
     }
 
     override fun onItemsCreated(items: MutableList<Any>) {
@@ -66,5 +88,12 @@ class AboutActivity : AbsAboutActivity() {
                 "https://github.com/YenalyLiew"
             )
         )
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // if (::mediaPlayer.isInitialized) {
+        //     mediaPlayer.release()
+        // }
     }
 }

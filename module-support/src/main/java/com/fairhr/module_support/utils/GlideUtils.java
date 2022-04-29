@@ -60,6 +60,7 @@ public class GlideUtils {
     public static void loadToImageView(Activity activity, String url, ImageView imageView) {
         Glide.with(activity)
                 .load(url)
+                .skipMemoryCache(false)
                 .into(imageView);
     }
 

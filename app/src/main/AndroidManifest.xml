@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
-        android:name=".AsFasnApplication"
+        android:name=".AsFansApplication"
         android:allowBackup="true"
         android:icon="@drawable/icon_beta"
         android:label="@string/app_name"

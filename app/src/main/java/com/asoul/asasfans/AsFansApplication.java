@@ -9,7 +9,7 @@ import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.tencent.bugly.crashreport.CrashReport;
 
 
-public class AsFasnApplication extends BaseApplication {
+public class AsFansApplication extends BaseApplication {
 
     /**
      * 基础模块在此初始化，和业务功能相关的到各自相关模块进行初始化

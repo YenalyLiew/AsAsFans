@@ -41,15 +41,16 @@
         <entry key="..\:/Users/Frozen/Desktop/AsAsFans/module-support/src/main/res/layout/support_item_select_picture.xml" value="0.1984375" />
         <entry key="..\:/Users/Frozen/Desktop/AsAsFans/module-support/src/main/res/layout/support_layout_dialog_select_picture.xml" value="0.1984375" />
         <entry key="..\:/Users/Frozen/Desktop/AsAsFans/module-support/src/main/res/layout/support_layout_item_checkboxh5.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/wrzg8/AndroidStudioProjects/AsAsFans/app/src/main/res/drawable/ic_shape_bg_fbfbfb_dp8.xml" value="0.2285" />
         <entry key="..\:/Users/wrzg8/AndroidStudioProjects/AsAsFans/app/src/main/res/drawable/social_trust_shape_tab_indicator.xml" value="0.137" />
         <entry key="..\:/Users/wrzg8/AndroidStudioProjects/AsAsFans/app/src/main/res/layout/activity_main.xml" value="0.3" />
         <entry key="..\:/Users/wrzg8/AndroidStudioProjects/AsAsFans/app/src/main/res/layout/activity_splash.xml" value="0.10389055151774262" />
         <entry key="..\:/Users/wrzg8/AndroidStudioProjects/AsAsFans/app/src/main/res/layout/fragment_fanart.xml" value="0.10389055151774262" />
         <entry key="..\:/Users/wrzg8/AndroidStudioProjects/AsAsFans/app/src/main/res/layout/fragment_tools.xml" value="0.10389055151774262" />
         <entry key="..\:/Users/wrzg8/AndroidStudioProjects/AsAsFans/app/src/main/res/layout/fragment_video.xml" value="0.268" />
-        <entry key="..\:/Users/wrzg8/AndroidStudioProjects/AsAsFans/app/src/main/res/layout/fragment_video_show.xml" value="0.132" />
-        <entry key="..\:/Users/wrzg8/AndroidStudioProjects/AsAsFans/app/src/main/res/layout/item_adapter_videolist.xml" value="0.10389055151774262" />
-        <entry key="..\:/Users/wrzg8/AndroidStudioProjects/AsAsFans/app/src/main/res/layout/item_video.xml" value="0.10389055151774262" />
+        <entry key="..\:/Users/wrzg8/AndroidStudioProjects/AsAsFans/app/src/main/res/layout/fragment_video_show.xml" value="0.36" />
+        <entry key="..\:/Users/wrzg8/AndroidStudioProjects/AsAsFans/app/src/main/res/layout/item_adapter_videolist.xml" value="0.44000000000000006" />
+        <entry key="..\:/Users/wrzg8/AndroidStudioProjects/AsAsFans/app/src/main/res/layout/item_video.xml" value="0.6" />
         <entry key="..\:/Users/wrzg8/AndroidStudioProjects/AsAsFans/app/src/main/res/menu/menu_bottom_nav.xml" value="0.10389055151774262" />
         <entry key="..\:/Users/wrzg8/AndroidStudioProjects/AsAsFans/app/src/main/res/menu/menu_main.xml" value="0.44000000000000006" />
         <entry key="..\:/Users/wrzg8/AndroidStudioProjects/AsAsFans/app/src/main/res/menu/menu_web.xml" value="0.275" />

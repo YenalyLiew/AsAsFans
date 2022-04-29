@@ -10,6 +10,17 @@ plugins {
 android {
 
 
+    signingConfigs {
+
+        AsAsFans {
+            storeFile file('AsAsFans.jks')
+            storePassword '123456'
+            keyPassword '123456'
+            keyAlias 'key0'
+        }
+    }
+
+
     compileSdkVersion rootProject.compileSdkVersion
     buildToolsVersion rootProject.buildToolsVersion
 
